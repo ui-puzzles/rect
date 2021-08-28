@@ -45,7 +45,6 @@
     "clean": "rimraf ./dist",
     "lint:script": "eslint --ext js,ts,tsx src --max-warning 5",
     "lint:style": "stylelint \"*.{scss,css}\" --fix",
-    "prepublish": "npm run test:stage && npm run lint:script && npm run build",
     "prepare": "husky install"
   },
   "commitlint": {
