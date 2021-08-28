@@ -1,6 +1,6 @@
 {
   "name": "rect",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -45,7 +45,8 @@
     "clean": "rimraf ./dist",
     "lint:script": "eslint --ext js,ts,tsx src --max-warning 5",
     "lint:style": "stylelint \"*.{scss,css}\" --fix",
-    "prepublish": "npm run test:stage && npm run lint:script && npm run build"
+    "prepublish": "npm run test:stage && npm run lint:script && npm run build",
+    "prepare": "husky install"
   },
   "commitlint": {
     "extends": [
@@ -54,8 +55,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-stated": {
