@@ -8435,13 +8435,28 @@
   "resolved" "https://registry.nlark.com/fs.realpath/download/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
-"fsevents@^1.2.7", "fsevents@^2.1.2", "fsevents@^2.1.3", "fsevents@~2.3.2":
+"fsevents@^1.2.7":
   "integrity" "sha1-8yXLBFVZJCi88Rs4M3DvcOO/zDg="
   "resolved" "https://registry.npm.taobao.org/fsevents/download/fsevents-1.2.13.tgz"
   "version" "1.2.13"
   dependencies:
     "bindings" "^1.5.0"
     "nan" "^2.12.1"
+
+"fsevents@^2.1.2":
+  "integrity" "sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro="
+  "resolved" "https://registry.npm.taobao.org/fsevents/download/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
+
+"fsevents@^2.1.3":
+  "integrity" "sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro="
+  "resolved" "https://registry.npm.taobao.org/fsevents/download/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
+
+"fsevents@~2.3.2":
+  "integrity" "sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro="
+  "resolved" "https://registry.npm.taobao.org/fsevents/download/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0="

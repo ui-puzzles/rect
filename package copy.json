@@ -52,7 +52,13 @@
       "@commitlint/config-conventional"
     ]
   },
-  "lint-staged": {
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-stated": {
     "*.{js,ts,tsx}": [
       "npm run lint:script"
     ],
