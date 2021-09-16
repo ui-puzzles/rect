@@ -1,6 +1,6 @@
 {
   "name": "rect",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -20,13 +20,9 @@
     "dist"
   ],
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
-    "lodash": "^4.17.21",
-    "web-vitals": "^1.0.1"
+    "lodash": "^4.17.21"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -43,22 +39,18 @@
     "storybook": "start-storybook -p 6006 -s publish",
     "build-storybook": "build-storybook",
     "clean": "rimraf ./dist",
-    "lint:script": "eslint --ext js,ts,tsx src --max-warning 5",
-    "lint:style": "stylelint \"*.{scss,css}\" --fix",
-    "prepublish": "npm run test:stage && npm run lint:script && npm run build"
+    "lint:script": "eslint --ext js,ts,tsx src/components --max-warnings 5",
+    "lint:style": "stylelint src/**/*.{scss,css} --fix",
+    "lint": "npm run lint:script && npm run lint:style",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run test:stage && npm run lint && npm run build"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-stated": {
+  "lint-staged": {
     "*.{js,ts,tsx}": [
       "npm run lint:script"
     ],
@@ -94,6 +86,9 @@
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.3.6",
     "@storybook/react": "^6.3.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/lodash": "^4.14.171",
     "@types/node": "^12.0.0",
@@ -105,7 +100,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
-    "husky": "^7.0.1",
+    "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
@@ -115,6 +110,7 @@
     "sass": "^1.37.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
   }
 }
