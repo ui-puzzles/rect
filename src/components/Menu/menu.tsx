@@ -5,9 +5,10 @@ import { MenuItemProps, MENU_ITEM_DISPLAY_NAME } from './menuItem';
 import { SubMenuProps, SUB_MENU_DISPLAY_NAME } from './subMenu';
 
 type MenuMode = 'horizontal' | 'vertical';
-type SelectType = (selectedIndex: number) => void;
+type SelectType = (selectedIndex: string) => void;
 export interface MenuProps {
-  defaultIndex?: number;
+  defaultIndex?: string;
+  defaultOpenSubMenus?: string[];
   mode?: MenuMode;
   disabled?: boolean;
   className?: string;
@@ -15,19 +16,22 @@ export interface MenuProps {
   onSelect?: SelectType;
 }
 interface IMenuContext {
-  index: number;
+  index: string;
   onSelect?: SelectType;
+  mode?: MenuMode;
+  defaultOpenSubMenus?: string[];
 }
 
 const MENU_CLS_PREFIX = 'puzzle-menu';
 
 export const MenuContext = createContext<IMenuContext>({
-  index: 0,
+  index: '0',
 });
 
 const Menu: React.FC<MenuProps> = (props) => {
   const {
     defaultIndex,
+    defaultOpenSubMenus,
     mode,
     disabled,
     children,
@@ -41,7 +45,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     [`${MENU_CLS_PREFIX}-disabled`]: disabled,
   }, className);
 
-  function handleClick(index: number) {
+  function handleClick(index: string) {
     setActiveIndex(index);
     if (typeof onSelect === 'function') {
       onSelect(index)
@@ -49,8 +53,10 @@ const Menu: React.FC<MenuProps> = (props) => {
   }
 
   const passedContext: IMenuContext = {
-    index: activeIndex ? activeIndex : 0,
+    index: activeIndex ? activeIndex : '0',
     onSelect: handleClick,
+    mode,
+    defaultOpenSubMenus,
   };
 
   const renderChildren = () => React.Children.map(children, (child, index) => {
@@ -59,7 +65,7 @@ const Menu: React.FC<MenuProps> = (props) => {
 
     if (displayName === MENU_ITEM_DISPLAY_NAME || displayName === SUB_MENU_DISPLAY_NAME) {
       return cloneElement(childElement, {
-        index
+        index: `${index}`
       });
     }
 
@@ -76,7 +82,8 @@ const Menu: React.FC<MenuProps> = (props) => {
 }
 
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
+  defaultOpenSubMenus: [],
   mode: 'horizontal',
   disabled: false,
 }

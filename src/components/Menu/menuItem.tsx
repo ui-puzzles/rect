@@ -4,14 +4,14 @@ import classnames from 'classnames';
 import { MenuContext } from './menu';
 
 export interface MenuItemProps {
-  index?: number;
+  index?: string;
   disabled?: boolean;
   className?: string;
   style?: CSSProperties;
 }
 export const MENU_ITEM_DISPLAY_NAME = 'MenuItem';
 
-const MENU_ITEM_CLS_PREFIX = 'puzzle-menu-item';
+export const MENU_ITEM_CLS_PREFIX = 'puzzle-menu-item';
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
   const {
@@ -28,7 +28,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   }, className);
 
   function handleClick() {
-    if (typeof context.onSelect === 'function' && !disabled && (typeof index === 'number')) {
+    if (typeof context.onSelect === 'function' && !disabled && (typeof index === 'string')) {
       context.onSelect(index);
     }
   }
