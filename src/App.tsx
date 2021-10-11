@@ -2,10 +2,11 @@ import Button from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
+import Icon from './components/Icon/icon';
 
 function App() {
   function handleSelect(index: string) {
-    alert(index)
+    console.log(index)
   }
   return (
     <section>
@@ -55,23 +56,7 @@ function App() {
         <MenuItem>dropdown six</MenuItem>
       </Menu>
 
-      {/* <Menu mode="vertical">
-        <SubMenu title="dropdown one">
-          <MenuItem>dropdown one</MenuItem>
-          <MenuItem>dropdown two</MenuItem>
-          <MenuItem>dropdown three</MenuItem>
-        </SubMenu>
-        <SubMenu title="dropdown two">
-          <MenuItem>dropdown three</MenuItem>
-          <MenuItem>dropdown four</MenuItem>
-          <MenuItem>dropdown five</MenuItem>
-        </SubMenu>
-        <SubMenu title="dropdown three">
-          <MenuItem>dropdown six</MenuItem>
-          <MenuItem>dropdown seven</MenuItem>
-          <MenuItem>dropdown eight</MenuItem>
-        </SubMenu>
-      </Menu> */}
+      <Icon icon="arrow-down" size="5x" theme="danger" />
     </section>
   );
 }
