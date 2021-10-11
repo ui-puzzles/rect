@@ -65,10 +65,20 @@ $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
     &-title {
       display: flex;
       align-items: center;
+
+      .puzzle-icon-angle-down {
+        margin-left: 4px;
+        transition: transform 0.25s ease-in-out;
+      }
+    }
+
+    &:hover {
+      .puzzle-icon-angle-down {
+        transform: rotate(180deg);
+      }
     }
 
     &-item {
-      display: none;
       position: absolute;
       top: calc(100% + 8px);
       left: 0;
@@ -82,10 +92,6 @@ $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
       > .#{$menu-prefix}-item {
         border-bottom: $menu-item-active-border-width solid transparent;
       }
-    }
-
-    &-display {
-      display: block;
     }
   }
 
@@ -108,6 +114,12 @@ $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
       flex-direction: column;
       align-items: flex-start;
 
+      &:hover {
+        .puzzle-icon-angle-down {
+          transform: rotate(0deg);
+        }
+      }
+
       &-item {
         position: relative;
         top: 0;
@@ -115,6 +127,12 @@ $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
         box-shadow: none;
         padding-left: $menu-item-padding-x;
         z-index: 0;
+      }
+
+      &.#{$menu-prefix}-sub-opened {
+        .puzzle-icon-angle-down {
+          transform: rotate(180deg);
+        }
       }
     }
   }

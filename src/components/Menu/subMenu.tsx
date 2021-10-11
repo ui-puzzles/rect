@@ -3,8 +3,10 @@
 import React, { FunctionComponentElement, useContext, useState } from 'react';
 import classnames from 'classnames';
 
+import Transition from '../Transition/transition';
 import { MenuContext } from './menu';
 import { MenuItemProps, MENU_ITEM_DISPLAY_NAME } from './menuItem';
+import Icon from '../Icon/icon';
 
 const SUB_MENU_CLS_PREFIX = 'puzzle-menu-sub';
 
@@ -31,6 +33,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const classes = classnames(`${SUB_MENU_CLS_PREFIX}`, {
     [`${SUB_MENU_CLS_PREFIX}-active`]: context.index === index,
     [`${SUB_MENU_CLS_PREFIX}-disabled`]: disabled,
+    [`${SUB_MENU_CLS_PREFIX}-opened`]: menuDisplay,
   }, className);
   let timer: any;
 
@@ -56,9 +59,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   } : {};
 
   const renderChildren = () => {
-    const subMenuClasses = classnames(`${SUB_MENU_CLS_PREFIX}-item`, {
-      [`${SUB_MENU_CLS_PREFIX}-display`]: menuDisplay,
-    });
+    const subMenuClasses = classnames(`${SUB_MENU_CLS_PREFIX}-item`);
+
     const childrenComponent = React.Children.map(children, (child, subIndex) => {
       const childrenElement = child as FunctionComponentElement<MenuItemProps>;
       const { displayName } = childrenElement.type;
@@ -74,9 +76,15 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     });
 
     return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
+      <Transition
+        in={menuDisplay}
+        timeout={300}
+        animation="zoom-in-top"
+      >
+        <ul className={subMenuClasses}>
+          {childrenComponent}
+        </ul>
+      </Transition>
     );
   };
 
@@ -84,6 +92,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     <li key={index} className={classes} {...mouseEvents}>
       <div className={`${SUB_MENU_CLS_PREFIX}-title`} {...clickEvents}>
         {title}
+        <Icon icon="angle-down" className="puzzle-icon-angle-down" />
       </div>
       {renderChildren()}
     </li>

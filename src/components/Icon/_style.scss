@@ -1,0 +1,7 @@
+$icon-prefix: "puzzle-icon";
+
+@each $key, $val in $theme-colors {
+  .#{$icon-prefix}-#{$key} {
+    color: $val;
+  }
+}
