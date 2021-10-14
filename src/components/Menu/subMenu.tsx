@@ -35,6 +35,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     [`${SUB_MENU_CLS_PREFIX}-disabled`]: disabled,
     [`${SUB_MENU_CLS_PREFIX}-opened`]: menuDisplay,
   }, className);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let timer: any;
 
   function handleClickMenu(e: React.MouseEvent) {
