@@ -7,7 +7,7 @@ const IPT_CLS_PREFIX = 'puzzle-input';
 
 export type InputSize = 'small' | 'middle' | 'large';
 
-interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size' | 'prefix' | 'onChange'>{
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size' | 'prefix' | 'onChange'>{
   disabled?: boolean;
   size?: InputSize;
   allowClear?: boolean;
