@@ -87,7 +87,7 @@ Button.defaultProps = {
   btnType: 'default',
   shape: 'round',
   size: 'middle',
-  loading: false,
+  // loading: false,
   disabled: false,
   block: false
 };
