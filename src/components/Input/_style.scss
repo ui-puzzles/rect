@@ -1,0 +1,162 @@
+$ipt-prefix: "puzzle-input";
+
+$input-padding-y: $btn-padding-y !default;
+$input-padding-x: $btn-padding-x !default;
+$input-font-family: $btn-font-family !default;
+$input-font-size: $btn-font-size !default;
+$input-font-weight: $font-weight-base !default;
+$input-line-height: $btn-line-height !default;
+
+$input-padding-y-sm: $btn-padding-y-sm !default;
+$input-padding-x-sm: $btn-padding-x-sm !default;
+$input-font-size-sm: $btn-font-size-sm !default;
+
+$input-padding-y-lg: $btn-padding-y-lg !default;
+$input-padding-x-lg: $btn-padding-x-lg !default;
+$input-font-size-lg: $btn-font-size-lg !default;
+
+$input-bg: $white !default;
+$input-disabled-bg: $gray-200 !default;
+$input-disabled-border-color: null !default;
+
+$input-color: $gray-700 !default;
+$input-border-color: $gray-400 !default;
+$input-border-width: $border-width !default;
+$input-box-shadow: $box-shadow-inset !default;
+
+$input-border-radius: $border-radius !default;
+$input-border-radius-lg: $border-radius-lg !default;
+$input-border-radius-sm: $border-radius-sm !default;
+
+$input-focus-bg: $input-bg !default;
+$input-focus-border-color: lighten($primary, 25%) !default;
+$input-focus-width: 0.15rem !default;
+$input-focus-color: $input-color !default;
+$input-focus-shadow-color: rgba($primary, 0.2) !default;
+$input-focus-box-shadow: 0 0 0 $input-focus-width $input-focus-shadow-color !default;
+
+$input-placeholder-color: $gray-600 !default;
+$input-plaintext-color: $body-color !default;
+
+$input-height-border: $input-border-width * 2 !default;
+
+$input-transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out !default;
+
+$input-group-addon-color: $input-color !default;
+$input-group-addon-bg: $gray-200 !default;
+$input-group-addon-border-color: $input-border-color !default;
+
+.#{$ipt-prefix} {
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+
+  // NOTE: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  border-radius: $input-border-radius;
+  box-shadow: $input-box-shadow;
+  transition: $input-transition;
+
+  &:focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    box-shadow: $input-focus-box-shadow;
+    // Avoid using mixin so we can pass custom focus shadow properly
+  }
+
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+
+  &.#{$ipt-prefix}-disabled {
+    cursor: not-allowed;
+  }
+
+  &.#{$ipt-prefix}-lg {
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $input-font-size-lg;
+    border-radius: $input-border-radius-lg;
+  }
+
+  &.#{$ipt-prefix}-sm {
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $input-font-size-sm;
+    border-radius: $input-border-radius-sm;
+  }
+
+  &.#{$ipt-prefix}-no-border {
+    border: none;
+  }
+}
+
+.#{$ipt-prefix}-clear {
+  position: relative;
+
+  &-icon {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 35px;
+    color: $input-color;
+    right: $input-padding-x;
+    top: 0;
+    cursor: pointer;
+
+    svg {
+      color: $input-placeholder-color;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .#{$ipt-prefix}-clear-icon {
+      display: block;
+    }
+  }
+}
+
+.#{$ipt-prefix}-group-wrapper {
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+
+  .#{$ipt-prefix}-wrapper {
+    display: flex;
+    align-items: center;
+
+    .#{$ipt-prefix}-addon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: $input-padding-y $input-padding-x;
+      font-size: $input-font-size; // Match inputs
+      font-weight: $font-weight-normal;
+      line-height: $input-line-height;
+      color: $input-group-addon-color;
+    }
+
+    .#{$ipt-prefix} {
+      border: none;
+      border-left: $input-border-width solid $input-border-color;
+      border-right: $input-border-width solid $input-border-color;
+      border-radius: 0;
+    }
+  }
+}

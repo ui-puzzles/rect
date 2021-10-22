@@ -15,7 +15,7 @@ export type ButtonSize = 'small' | 'middle' | 'large';
 
 export type ButtonShape = 'round' | 'circle';
 
-interface BaseButtonProps {
+interface BasicButtonProps {
   btnType?: ButtonType;
   shape?: ButtonShape;
   size?: ButtonSize;
@@ -27,8 +27,8 @@ interface BaseButtonProps {
   className?: string;
 }
 
-type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
-type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
+type NativeButtonProps = BasicButtonProps & ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BasicButtonProps & AnchorHTMLAttributes<HTMLElement>;
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
@@ -37,10 +37,10 @@ const Button: FC<ButtonProps> = (props) => {
     btnType,
     shape,
     size,
-    loading,
+    // loading,
     disabled,
     block,
-    icon,
+    // icon,
     href,
     className,
     children,
@@ -51,7 +51,7 @@ const Button: FC<ButtonProps> = (props) => {
       large: 'lg',
       middle: 'mid',
       small: 'sm',
-    }
+    };
 
     return sizeMap[size];
   })(size as ButtonSize);
@@ -87,7 +87,7 @@ Button.defaultProps = {
   btnType: 'default',
   shape: 'round',
   size: 'middle',
-  loading: false,
+  // loading: false,
   disabled: false,
   block: false
 };

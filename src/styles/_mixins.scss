@@ -3,19 +3,19 @@
 **/
 
 // button
-@mixin button-size ($padding-x, $padding-y, $font-size, $border-radius) {
+@mixin button-size($padding-x, $padding-y, $font-size, $border-radius) {
   padding: $padding-y $padding-x;
   font-size: $font-size;
   border-radius: $border-radius;
 }
 
-@mixin button-circle ($circle-radius) {
+@mixin button-circle($circle-radius) {
   width: $circle-radius * 2;
   height: $circle-radius * 2;
   border-radius: 50%;
 }
 
-@mixin button-style (
+@mixin button-style(
   $background,
   $border-color,
   $color,
@@ -47,5 +47,37 @@
     background: $background;
     border-color: $border-color;
     cursor: not-allowed;
+  }
+}
+
+@mixin zoom-animation(
+  $direction: "top",
+  $scaleStart: scaleY(0),
+  $scaleEnd: scaleY(0),
+  $origin: center top
+) {
+  .zoom-in-#{$direction}-enter {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+
+  .zoom-in-#{$direction}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+      opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+
+  .zoom-in-#{$direction}-exit {
+    opacity: 1;
+  }
+
+  .zoom-in-#{$direction}-exit-active {
+    opacity: 0;
+    transform: $scaleStart;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+      opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
   }
 }

@@ -1,0 +1,38 @@
+$puzzle-progress: "puzzle-progress";
+
+.#{$puzzle-progress} {
+  width: 100%;
+  box-sizing: border-box;
+
+  &-line {
+    position: relative;
+    border-radius: $progress-border-radius;
+    background-color: $progress-bg;
+    overflow: hidden;
+
+    &-inner {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      border-radius: $progress-border-radius;
+      line-height: 1;
+      transition: $progress-bar-transition;
+    }
+
+    @each $key, $val in $theme-colors {
+      .#{$puzzle-progress}-line-#{$key} {
+        background-color: $val;
+      }
+    }
+
+    &-text {
+      margin: 0 5px;
+      color: $progress-bar-color;
+      font-size: $progress-font-size;
+    }
+  }
+}
