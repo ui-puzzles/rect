@@ -64,6 +64,10 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     $primary
   );
 
+  &-label {
+    padding: 0 8px;
+  }
+
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
@@ -135,8 +139,10 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 }
 
 .#{$puzzle-btn}-circle {
+  @include flex(inline-flex);
   @include button-circle($circle-radius-base);
 
   line-height: $line-height-sm;
   white-space: normal;
+  overflow: hidden;
 }
