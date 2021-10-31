@@ -58,7 +58,7 @@
     "lint": "npm run lint:script && npm run lint:style",
     "prepare": "husky install",
     "prepublishOnly": "npm run test:stage && npm run lint && npm run build",
-    "publish": "npm publish --access publish"
+    "publish": "npm publish --access public"
   },
   "commitlint": {
     "extends": [
