@@ -1,5 +1,5 @@
 {
-  "name": "rect",
+  "name": "@ui-puzzles/rect",
   "version": "0.1.2",
   "private": false,
   "description": "An enterprise-class UI design language and React components implementation",
