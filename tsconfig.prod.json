@@ -13,6 +13,8 @@
   ],
   "exclude": [
     "src/**/*/*.test.tsx",
-    "src/**/*/*.stories.tsx"
+    "src/**/*/*.stories.tsx",
+    "src/setupTests.ts",
+    "src/welcome.stories.tsx",
   ]
 }

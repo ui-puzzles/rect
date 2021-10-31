@@ -1,4 +1,4 @@
-import { FC, ChangeEvent, useState, useRef } from 'react';
+import React, { FC, ChangeEvent, useState, useRef } from 'react';
 import axios from 'axios';
 
 import UploadList from './uploadList';

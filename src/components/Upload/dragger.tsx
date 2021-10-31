@@ -1,4 +1,4 @@
-import { FC, useState, DragEvent } from 'react';
+import React, { FC, useState, DragEvent } from 'react';
 import classnames from 'classnames';
 
 import { isFunc } from '../../utils/index';
