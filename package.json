@@ -57,7 +57,8 @@
     "lint:style": "stylelint src/**/*.{scss,css} --fix",
     "lint": "npm run lint:script && npm run lint:style",
     "prepare": "husky install",
-    "prepublishOnly": "npm run test:stage && npm run lint && npm run build"
+    "prepublishOnly": "npm run test:stage && npm run lint && npm run build",
+    "publish": "npm publish --access publish"
   },
   "commitlint": {
     "extends": [
