@@ -4,15 +4,17 @@ import Button from './button';
 
 describe('test Button component', () => {
   it('should render the correct default button', () => {
-    const wrapper = render(<Button>Default Button</Button>)
-    // NOTE: queryByText vs. getByText
-    const element = wrapper.getByText('Default Button')
+    const wrapper = render(<Button>Default Button</Button>);
 
-    expect(element).toBeInTheDocument()
+    const btnEle = wrapper.getByTestId('test-btn');
+    // NOTE: queryByText vs. getByText
+    const labeEle = wrapper.getByText('Default Button');
+
+    expect(labeEle).toBeInTheDocument();
 
     // NOTE: the tagName is uppercase
-    expect(element.tagName).toEqual('BUTTON')
-    expect(element).toHaveClass('puzzle-btn puzzle-btn-default')
+    expect(labeEle.tagName).toEqual('SPAN');
+    expect(btnEle).toHaveClass('puzzle-btn');
   });
 
   it('should render the correct component based on different props', () => {
@@ -26,5 +28,4 @@ describe('test Button component', () => {
   it('should render a disabled button when the property of disabled set to true', () => {
     
   });
-  
 })

@@ -36,7 +36,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 const Button: FC<ButtonProps> = (props) => {
   const {
-    label = 'click me',
+    label,
     btnType = 'default',
     shape = 'round',
     size = 'middle',
@@ -92,7 +92,7 @@ const Button: FC<ButtonProps> = (props) => {
   };
 
   return (
-    <button disabled={disabled} className={classes} {...restProps}>
+    <button disabled={disabled} className={classes} {...restProps} data-testid="test-btn">
       {loading && <Icon icon="spinner" spin />}
       {renderIcon()}
       <span className={`${BTN_CLS_PREFIX}-label`}>
