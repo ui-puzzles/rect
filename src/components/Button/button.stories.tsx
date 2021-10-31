@@ -13,7 +13,7 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />
 export const Type = Template.bind({});
 
 Type.args = {
-  btnType: 'primary',
+  ...Type.args,
   label: 'primary',
   onClick: action('clicked me')
 };
@@ -22,7 +22,7 @@ export const Size = Template.bind({});
 
 Size.args = {
   btnType: 'primary',
-  size: 'large',
+  size: 'middle',
   label: 'size',
 };
 

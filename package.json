@@ -1,6 +1,6 @@
 {
   "name": "rect",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Puzzle/rect",
@@ -19,13 +19,13 @@
     "frontend",
     "react-component"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/ui-puzzles/rect",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ui-puzzles/rect/issues"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ui-puzzles/rect"
   },
   "files": [
     "dist"
@@ -36,7 +36,6 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
-    "lodash": "^4.17.21",
     "react-transition-group": "^4.4.2"
   },
   "peerDependencies": {
@@ -118,6 +117,7 @@
     "eslint-plugin-react": "^7.24.0",
     "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
+    "lodash": "^4.17.21",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
