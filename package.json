@@ -43,7 +43,7 @@
     "react-dom": ">=16.8.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start", 
     "build": "npm run clean && npm run build:ts && npm run build:scss",
     "build:ts": "tsc -p tsconfig.prod.json",
     "build:scss": "sass ./src/styles/index.scss ./dist/index.css",
