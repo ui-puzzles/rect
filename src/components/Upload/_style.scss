@@ -1,0 +1,102 @@
+$puzzle-upload: "puzzle-upload";
+$puzzle-dragger: "puzzle-dragger";
+
+.#{$puzzle-upload} {
+  &-wrapper {
+    display: inline-block;
+  }
+
+  &-input {
+    display: none !important;
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &-item {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 200px;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 5px;
+    border-radius: 4px;
+
+    &-name {
+      margin-left: 5px;
+      margin-right: 40px;
+
+      svg {
+        margin-right: 5px;
+        color: $gray-500;
+      }
+
+      &[data-status="error"] {
+        color: $danger;
+
+        svg {
+          color: $danger;
+        }
+      }
+    }
+
+    &-status {
+      display: block;
+      position: absolute;
+      right: 5px;
+      top: 0;
+      line-height: inherit;
+    }
+
+    &-action {
+      display: none;
+      position: absolute;
+      right: 7px;
+      top: 0;
+      line-height: inherit;
+      cursor: pointer;
+    }
+
+    &:first-child {
+      margin-top: 10px;
+    }
+
+    &:hover {
+      background-color: $gray-200;
+
+      .#{$puzzle-upload}-item-status {
+        display: none;
+      }
+
+      .#{$puzzle-upload}-item-action {
+        display: block;
+      }
+    }
+  }
+}
+
+.#{$puzzle-dragger} {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  height: 180px;
+  padding: 20px;
+  background: $gray-100;
+  border: 1px dashed $gray-300;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &-over {
+    border: 2px dashed $primary;
+    background: rgba($primary, 0.2);
+  }
+
+  &:hover {
+    border-color: $primary;
+  }
+}
