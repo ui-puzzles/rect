@@ -53,7 +53,7 @@
     "storybook": "start-storybook -p 6006 -s publish",
     "build-storybook": "build-storybook",
     "clean": "rimraf ./dist",
-    "lint:script": "eslint --ext js,ts,tsx src/components --max-warnings 5",
+    "lint:script": "eslint --ext js,ts,tsx src",
     "lint:style": "stylelint src/**/*.{scss,css} --fix",
     "lint": "npm run lint:script && npm run lint:style",
     "prepare": "husky install",
