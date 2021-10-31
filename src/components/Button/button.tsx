@@ -1,5 +1,8 @@
-import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from 'react';
+import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode, isValidElement } from 'react';
 import classNames from 'classnames';
+
+import Icon, { IconProp } from '../Icon';
+import { warning, isDev, isString } from '../../utils';
 
 const BTN_CLS_PREFIX = 'puzzle-btn';
 
@@ -10,19 +13,18 @@ export type ButtonType = 'default'
   | 'danger'
   | 'dashed'
   | 'ghost';
-
 export type ButtonSize = 'small' | 'middle' | 'large';
-
 export type ButtonShape = 'round' | 'circle';
 
 interface BasicButtonProps {
+  label: string;
   btnType?: ButtonType;
   shape?: ButtonShape;
   size?: ButtonSize;
   loading?: boolean;
   disabled?: boolean;
   block?: boolean;
-  icon?: ReactNode;
+  icon?: string | ReactNode;
   href?: string;
   className?: string;
 }
@@ -34,13 +36,14 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 const Button: FC<ButtonProps> = (props) => {
   const {
-    btnType,
-    shape,
-    size,
-    // loading,
-    disabled,
-    block,
-    // icon,
+    label = 'click me',
+    btnType = 'default',
+    shape = 'round',
+    size = 'middle',
+    loading = false,
+    disabled = false,
+    block = false,
+    icon,
     href,
     className,
     children,
@@ -69,27 +72,34 @@ const Button: FC<ButtonProps> = (props) => {
   * NOTE: If the button btnType equals link and don't provide href. it should give a hint.
   */
   if (btnType === 'link') {
+    if (!href && isDev) {
+      warning('The Button was rendered a link but don"t provide href property.');
+    }
+
     return (
       <a className={classes} href={href} {...restProps}>
-        {children}
+        {label}
       </a>
     );
   }
 
+  const renderIcon = () => {
+    if (loading === true) return null;
+
+    if (isValidElement(icon)) return icon;
+
+    if (icon && isString(icon)) return <Icon icon={icon as IconProp} />;
+  };
+
   return (
     <button disabled={disabled} className={classes} {...restProps}>
-      {children}
+      {loading && <Icon icon="spinner" spin />}
+      {renderIcon()}
+      <span className={`${BTN_CLS_PREFIX}-label`}>
+        {label || children}
+      </span>
     </button>
-  )
-}
-
-Button.defaultProps = {
-  btnType: 'default',
-  shape: 'round',
-  size: 'middle',
-  // loading: false,
-  disabled: false,
-  block: false
+  );
 };
 
 export default Button;
