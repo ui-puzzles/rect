@@ -8,7 +8,7 @@ import { MenuContext } from './menu';
 import { MenuItemProps, MENU_ITEM_DISPLAY_NAME } from './menuItem';
 import Icon from '../Icon/icon';
 
-const SUB_MENU_CLS_PREFIX = 'puzzle-menu-sub';
+const prefixCls = 'pr-menu-sub';
 
 export const SUB_MENU_DISPLAY_NAME = 'SubMenu';
 export interface SubMenuProps {
@@ -30,10 +30,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
   const isOpened = (index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false;
   const [menuDisplay, setMenuDisplay] = useState(isOpened);
-  const classes = classnames(`${SUB_MENU_CLS_PREFIX}`, {
-    [`${SUB_MENU_CLS_PREFIX}-active`]: context.index === index,
-    [`${SUB_MENU_CLS_PREFIX}-disabled`]: disabled,
-    [`${SUB_MENU_CLS_PREFIX}-opened`]: menuDisplay,
+  const classes = classnames(`${prefixCls}`, {
+    [`${prefixCls}-active`]: context.index === index,
+    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-opened`]: menuDisplay,
   }, className);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let timer: any;
@@ -60,7 +60,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   } : {};
 
   const renderChildren = () => {
-    const subMenuClasses = classnames(`${SUB_MENU_CLS_PREFIX}-item`);
+    const subMenuClasses = classnames(`${prefixCls}-item`);
 
     const childrenComponent = React.Children.map(children, (child, subIndex) => {
       const childrenElement = child as FunctionComponentElement<MenuItemProps>;
@@ -91,9 +91,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 
   return (
     <li key={index} className={classes} {...mouseEvents}>
-      <div className={`${SUB_MENU_CLS_PREFIX}-title`} {...clickEvents}>
+      <div className={`${prefixCls}-title`} {...clickEvents}>
         {title}
-        <Icon icon="angle-down" className="puzzle-icon-angle-down" />
+        <Icon icon="angle-down" className="pr-icon-angle-down" />
       </div>
       {renderChildren()}
     </li>

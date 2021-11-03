@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Icon from '../Icon/icon';
 
-const IPT_CLS_PREFIX = 'puzzle-input';
+const prefixCls = 'pr-input';
 
 export type InputSize = 'small' | 'middle' | 'large';
 
@@ -51,10 +51,10 @@ const Input: FC<InputProps> = (props) => {
     delete restProps.defaultValue;
   }
 
-  const classes = classnames(`${IPT_CLS_PREFIX}`, {
-    [`${IPT_CLS_PREFIX}-${sizeSuffix}`]: size !== 'middle',
-    [`${IPT_CLS_PREFIX}-disabled`]: disabled,
-    [`${IPT_CLS_PREFIX}-no-border`]: !bordered,
+  const classes = classnames(`${prefixCls}`, {
+    [`${prefixCls}-${sizeSuffix}`]: size !== 'middle',
+    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-no-border`]: !bordered,
   }, className);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -85,13 +85,13 @@ const Input: FC<InputProps> = (props) => {
 
     if (allowClear) {
       return (
-        <div style={customStyle} className={`${IPT_CLS_PREFIX}-clear`}>
+        <div style={customStyle} className={`${prefixCls}-clear`}>
           <input disabled={disabled}
             className={classes}
             value={value}
             {...restProps}
             onChange={handleChange} />
-          <Icon icon="times-circle" className={`${IPT_CLS_PREFIX}-clear-icon`} onClick={handleClear} />
+          <Icon icon="times-circle" className={`${prefixCls}-clear-icon`} onClick={handleClear} />
         </div>
       );
     }
@@ -108,11 +108,11 @@ const Input: FC<InputProps> = (props) => {
     <>
       {
         (prefix || suffix) ? (
-          <div style={style} className={`${IPT_CLS_PREFIX}-group-wrapper`}>
-            <div className={`${IPT_CLS_PREFIX}-wrapper`}>
-              {prefix && <div className={`${IPT_CLS_PREFIX}-addon`}>{prefix}</div>}
+          <div style={style} className={`${prefixCls}-group-wrapper`}>
+            <div className={`${prefixCls}-wrapper`}>
+              {prefix && <div className={`${prefixCls}-addon`}>{prefix}</div>}
               {renderInput()}
-              {suffix && <div className={`${IPT_CLS_PREFIX}-addon`}>{suffix}</div>}
+              {suffix && <div className={`${prefixCls}-addon`}>{suffix}</div>}
             </div>
           </div>
         )

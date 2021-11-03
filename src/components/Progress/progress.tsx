@@ -2,7 +2,7 @@ import React, { FC, CSSProperties } from 'react';
 
 import { ThemeProps } from '../Icon/icon';
 
-const PROGRESS_CLS_PREFIX = 'puzzle-progress';
+const prefixCls = 'pr-progress';
 
 export interface ProgressProps {
   percent: number;
@@ -25,14 +25,14 @@ const Progress: FC<ProgressProps> = (props) => {
   } = props
 
   return (
-    <div className={PROGRESS_CLS_PREFIX} style={style}>
-      <div style={{ height: `${strokeHeight}px`}} className={`${PROGRESS_CLS_PREFIX}-line`}>
-        <div className={`${PROGRESS_CLS_PREFIX}-line-inner ${PROGRESS_CLS_PREFIX}-line-${theme}` }
+    <div className={prefixCls} style={style}>
+      <div style={{ height: `${strokeHeight}px`}} className={`${prefixCls}-line`}>
+        <div className={`${prefixCls}-line-inner ${prefixCls}-line-${theme}` }
           style={{width: `${percent}%`}}
         >
           {
             showText && (
-              <span className={`${PROGRESS_CLS_PREFIX}-line-text`}>{`${percent}%`}</span>
+              <span className={`${prefixCls}-line-text`}>{`${percent}%`}</span>
             )
           }
         </div>

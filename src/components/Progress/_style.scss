@@ -1,6 +1,6 @@
-$puzzle-progress: "puzzle-progress";
+$pr-progress: "pr-progress";
 
-.#{$puzzle-progress} {
+.#{$pr-progress} {
   width: 100%;
   box-sizing: border-box;
 
@@ -24,7 +24,7 @@ $puzzle-progress: "puzzle-progress";
     }
 
     @each $key, $val in $theme-colors {
-      .#{$puzzle-progress}-line-#{$key} {
+      .#{$pr-progress}-line-#{$key} {
         background-color: $val;
       }
     }

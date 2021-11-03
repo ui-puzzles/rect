@@ -1,4 +1,4 @@
-$puzzle-btn: "puzzle-btn";
+$pr-btn: "pr-btn";
 
 // base properties
 $btn-font-weight: 400;
@@ -38,7 +38,7 @@ $btn-border-radius-half: 50% !default;
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
-.#{$puzzle-btn} {
+.#{$pr-btn} {
   position: relative;
   display: inline-block;
   font-weight: $btn-font-weight;
@@ -86,7 +86,7 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 }
 
 // small size
-.#{$puzzle-btn}-sm {
+.#{$pr-btn}-sm {
   @include button-size(
     $btn-padding-x-sm,
     $btn-padding-y-sm,
@@ -96,7 +96,7 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 }
 
 // large size
-.#{$puzzle-btn}-lg {
+.#{$pr-btn}-lg {
   @include button-size(
     $btn-padding-x-lg,
     $btn-padding-y-lg,
@@ -105,40 +105,40 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   );
 }
 
-.#{$puzzle-btn}-link {
+.#{$pr-btn}-link {
   @include button-style($white, $white, $primary);
 
   box-shadow: none;
 }
 
-.#{$puzzle-btn}-text {
+.#{$pr-btn}-text {
   @include button-style($white, $white, $body-color, $gray-100);
 
   box-shadow: none;
 }
 
-.#{$puzzle-btn}-primary {
+.#{$pr-btn}-primary {
   @include button-style($primary, $primary, $white);
 }
 
-.#{$puzzle-btn}-danger {
+.#{$pr-btn}-danger {
   @include button-style($danger, $danger, $white);
 }
 
-.#{$puzzle-btn}-dashed {
+.#{$pr-btn}-dashed {
   border-color: $gray-500;
   border-style: dashed;
 }
 
-.#{$puzzle-btn}-ghost {
+.#{$pr-btn}-ghost {
   background: transparent;
 }
 
-.#{$puzzle-btn}-block {
+.#{$pr-btn}-block {
   display: block;
 }
 
-.#{$puzzle-btn}-circle {
+.#{$pr-btn}-circle {
   @include flex(inline-flex);
   @include button-circle($circle-radius-base);
 

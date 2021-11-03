@@ -5,7 +5,7 @@ import UploadList from './uploadList';
 import Dragger from './dragger';
 import { isFunc, isObj, isPromise } from '../../utils/index';
 
-const UPLOAD_CLS_PREFIX = 'puzzle-upload';
+const prefixCls = 'pr-upload';
 
 export enum FileStatus {
   ready = 'ready',
@@ -89,7 +89,7 @@ const Upload: FC<UploadProps> = (props) => {
 
   const postFile = (file: File) => {
     const curFile: UploadFile = {
-      uid: 'PUZZLE_' + Date.now(),
+      uid: 'pr_' + Date.now(),
       status: FileStatus.ready,
       name: file.name,
       size: file.size,
@@ -218,8 +218,8 @@ const Upload: FC<UploadProps> = (props) => {
   }
 
   return (
-    <div className={UPLOAD_CLS_PREFIX}>
-      <div className={`${UPLOAD_CLS_PREFIX}-wrapper`} onClick={handleClick}>
+    <div className={prefixCls}>
+      <div className={`${prefixCls}-wrapper`} onClick={handleClick}>
         {
           draggable ? (
             <Dragger onFile={handleDragFile}>
@@ -233,7 +233,7 @@ const Upload: FC<UploadProps> = (props) => {
           disabled={disabled}
           multiple={multiple}
           onChange={handleFileChange}
-          className={`${UPLOAD_CLS_PREFIX}-input`} />
+          className={`${prefixCls}-input`} />
       </div>
       <UploadList fileList={fileList} onRemove={handleRemove} />
     </div>

@@ -1,6 +1,9 @@
-/**
- * the types for your component
- */
-export interface TemplateProps {
-  someProps: 'propValue'
+import { CSSProperties } from "react";
+
+export interface DividerProps {
+  className?: string | string[];
+  style?: CSSProperties;
+  dashed?: boolean;
+  align?: 'left' | 'center' | 'right';
+  mode?: 'horizontal' | 'vertical';
 }

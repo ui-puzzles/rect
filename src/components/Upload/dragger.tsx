@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import { isFunc } from '../../utils/index';
 
-const DRAGGER_CLS_PREFIX = 'puzzle-dragger';
+const prefixCls = 'pr-dragger';
 
 interface DraggerProps {
   onFile: (files: FileList) => void;
@@ -16,8 +16,8 @@ const Dragger: FC<DraggerProps> = (props) => {
   } = props;
   const [dragOver, setDragOver] = useState(false);
 
-  const classes = classnames(DRAGGER_CLS_PREFIX, {
-    [`${DRAGGER_CLS_PREFIX}-over`]: dragOver
+  const classes = classnames(prefixCls, {
+    [`${prefixCls}-over`]: dragOver
   });
 
   const handleDrag = (over: boolean) => {

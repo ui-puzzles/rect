@@ -10,8 +10,8 @@ interface UploadListProps {
   onRemove: (file: UploadFile) => void;
 }
 
-const UPLOAD_LIST_CLS = 'puzzle-upload-list';
-const UPLOAD_LIST_ITEM_CLS = 'puzzle-upload-item';
+const listPrefixCls = 'pr-upload-list';
+const itemPrefixCls = 'pr-upload-item';
 
 const UploadList: FC<UploadListProps> = (props) => {
   const {
@@ -31,20 +31,20 @@ const UploadList: FC<UploadListProps> = (props) => {
   if (!fileList.length) return null;
 
   return (
-    <ul className={`${UPLOAD_LIST_CLS}`}>
+    <ul className={`${listPrefixCls}`}>
       {
         fileList.map(item => (
-          <li className={UPLOAD_LIST_ITEM_CLS} key={item.uid}>
-            <span className={`${UPLOAD_LIST_ITEM_CLS}-name`} data-status={item.status}>
+          <li className={itemPrefixCls} key={item.uid}>
+            <span className={`${itemPrefixCls}-name`} data-status={item.status}>
               <Icon icon="file-alt" theme="secondary" />
               {item.name}
             </span>
-            <span className={`${UPLOAD_LIST_ITEM_CLS}-status`}>
+            <span className={`${itemPrefixCls}-status`}>
               {(item.status === FileStatus.uploading || item.status === FileStatus.ready) && <Icon icon="spinner" spin theme="primary" />}
               {item.status === FileStatus.success && <Icon icon="check-circle" theme="success" />}
               {item.status === FileStatus.error && <Icon icon="times-circle" theme="danger" />}
             </span>
-            <span className={`${UPLOAD_LIST_ITEM_CLS}-action`}>
+            <span className={`${itemPrefixCls}-action`}>
               <Icon icon="times" onClick={handleRemoveFile(item)}/>
             </span>
             {
