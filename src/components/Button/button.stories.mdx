@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Button from './button';
+import ButtonApi from './README.en-US.md';
+
+<Meta title="Components/Gereral/Button" component={Button} />
+
+## Button
+
+To enhance the ability of button element and trigger an operation.
+
+## Examples
+
+### theme
+
+It's easy to change the button style by setting the theme prop. Available options: 'default', 'primary', 'danger'
+
+<Canvas>
+  <Story name="theme">
+    <Button label="default" />
+    <Button label="primary" btnType="primary" />
+  </Story>
+</Canvas>
+
+### size
+
+The button suports different size, available options: 'middle(as default)', 'small', 'large'
+
+<Canvas>
+  <Story name="size">
+    <Button label="small" size="small"  />
+    <Button label="middle" size="middle"  />
+    <Button label="large" size="large"  />
+  </Story>
+</Canvas>
+
+<ButtonApi />
+
