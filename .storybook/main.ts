@@ -1,13 +1,23 @@
 const path = require('path');
 
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: [
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
+  addons: [
+    '@storybook/addon-postcss',
+    '@storybook/addon-links',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null,
+        transcludeMarkdown: true,
+      },
+    },
+    '@storybook/addon-essentials'
   ],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -21,7 +31,6 @@ module.exports = {
       include: path.resolve(__dirname, '../src'),
     });
 
-    // Return the altered config
     return config;
   },
 }

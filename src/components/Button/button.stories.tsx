@@ -1,41 +1,62 @@
 import { Story, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import Button, { ButtonProps }  from './index';
 
 export default {
   title: 'Components/Button',
   component: Button,
+  argTypes: {
+    label: {
+      description: 'Set the content of button',
+    },
+    size: {
+      options: ['small', 'middle', 'large'],
+      control: {
+        type: 'select'
+      },
+      description: 'Set the size of button'
+    },
+    btnType: {
+      options: ['default', 'text', 'link', 'primary', 'danger', 'dashed', 'ghost'],
+      control: {
+        type: 'select'
+      },
+      description: 'Set the appearance of button'
+    },
+    shape: {
+      options: ['round', 'circle'],
+      control: {
+        type: 'select',
+      },
+      description: 'Set the shape of button'
+    },
+    onClick: {
+      action: 'clicked me'
+    }
+  },
+  parameters: {
+    info: {
+      text: `
+        ~~~ts
+          <Button label="Submit" />
+        ~~~
+      `
+    }
+  }
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
-export const Type = Template.bind({});
+export const Simple = Template.bind({});
 
-Type.args = {
-  ...Type.args,
-  label: 'primary',
-  onClick: action('clicked me')
+Simple.args = {
+  ...Simple.args,
+  label: 'I\'m a button',
 };
 
-export const Size = Template.bind({});
+export const withIcon = Template.bind({});
 
-Size.args = {
-  btnType: 'primary',
-  size: 'middle',
-  label: 'size',
-};
-
-export const Shape = Template.bind({});
-
-Shape.args = {
-  shape: 'round',
-  label: 'shape',
-};
-
-export const buttonIcon = Template.bind({});
-
-buttonIcon.args = {
+withIcon.args = {
   icon: 'thumbs-up',
   btnType:'primary',
   label: 'with Icon',
