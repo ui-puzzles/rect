@@ -1,6 +1,6 @@
 
-import Template from './template';
+import Divider from './divider';
 
-export type { TemplateProps } from './interface';
+export type { DividerProps } from './interface';
 
-export default Template;
+export default Divider;

@@ -4,6 +4,7 @@ The table to display the props of your component
 
 |Property|Description|Type|DefaultValue|
 |---|---|---|---|
+|  |  |  |  |
 
 ## Change Log
 

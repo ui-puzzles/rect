@@ -1,5 +1,5 @@
 /**
-* 变量以及可配置设置
+* basic properties variables
 **/
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -51,13 +51,13 @@ $font-family-monospace: sfmono-regular, menlo, monaco, consolas,
   "Liberation Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
-// 字体大小
+// font-size
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * 0.875 !default;
 $font-size-root: null !default;
 
-// 字重
+// font-weight
 $font-weight-lighter: lighter !default;
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;
@@ -65,12 +65,12 @@ $font-weight-bold: 700 !default;
 $font-weight-bolder: bolder !default;
 $font-weight-base: $font-weight-normal !default;
 
-// 行高
+// line-height
 $line-height-base: 1.5 !default;
 $line-height-lg: 2 !default;
 $line-height-sm: 1.25 !default;
 
-// 标题大小
+// header size
 $h1-font-size: $font-size-base * 2.5 !default;
 $h2-font-size: $font-size-base * 2 !default;
 $h3-font-size: $font-size-base * 1.75 !default;
@@ -78,13 +78,13 @@ $h4-font-size: $font-size-base * 1.5 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
 $h6-font-size: $font-size-base !default;
 
-// 链接
+// link
 $link-color: $primary !default;
 $link-decoration: none !default;
 $link-hover-color: darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
 
-// 圆形
+// circle
 $circle-radius-base: 1.5rem !default;
 $circle-radius-sm: $circle-radius-base * 0.875 !default;
 $circle-radius-lg: $circle-radius-base * 2 !default;
@@ -166,10 +166,10 @@ $code-font-size: $small-font-size !default;
 $code-color: $pink !default;
 $pre-color: null !default;
 
-// options 可配置选项
+// options
 $enable-pointer-cursor-for-buttons: true !default;
 
-// 边框 和 border radius
+// border and border radius
 $border-width: 1px !default;
 $border-color: $gray-300 !default;
 
@@ -177,7 +177,7 @@ $border-radius: 0.25rem !default;
 $border-radius-lg: 0.3rem !default;
 $border-radius-sm: 0.2rem !default;
 
-// 不同类型的 box shadow
+// box shadow
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
 $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
