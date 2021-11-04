@@ -59,7 +59,8 @@
     "lint": "npm run lint:script && npm run lint:style",
     "prepare": "husky install",
     "prepublishOnly": "npm run test:stage && npm run lint && npm run build",
-    "release": "npm publish --access public"
+    "release": "npm publish --access public",
+    "ui-cli": "./scripts/create-template-component.js"
   },
   "commitlint": {
     "extends": [
@@ -120,6 +121,8 @@
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "babel-loader": "^8.2.3",
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",

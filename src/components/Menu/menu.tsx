@@ -22,7 +22,7 @@ interface IMenuContext {
   defaultOpenSubMenus?: string[];
 }
 
-const MENU_CLS_PREFIX = 'puzzle-menu';
+const prefixCls = 'pr-menu';
 
 export const MenuContext = createContext<IMenuContext>({
   index: '0',
@@ -40,9 +40,9 @@ const Menu: React.FC<MenuProps> = (props) => {
     onSelect
   } = props;
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
-  const classes = classnames(`${MENU_CLS_PREFIX}`, {
-    [`${MENU_CLS_PREFIX}-v`]: mode === 'vertical',
-    [`${MENU_CLS_PREFIX}-disabled`]: disabled,
+  const classes = classnames(`${prefixCls}`, {
+    [`${prefixCls}-v`]: mode === 'vertical',
+    [`${prefixCls}-disabled`]: disabled,
   }, className);
 
   function handleClick(index: string) {

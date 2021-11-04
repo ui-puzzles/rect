@@ -11,7 +11,7 @@ export interface MenuItemProps {
 }
 export const MENU_ITEM_DISPLAY_NAME = 'MenuItem';
 
-export const MENU_ITEM_CLS_PREFIX = 'puzzle-menu-item';
+const prefixCls = 'pr-menu-item';
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
   const {
@@ -22,9 +22,9 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     style,
   } = props;
   const context = useContext(MenuContext);
-  const classes = classnames(`${MENU_ITEM_CLS_PREFIX}`, {
-    [`${MENU_ITEM_CLS_PREFIX}-disabled`]: disabled,
-    [`${MENU_ITEM_CLS_PREFIX}-active`]: index === context.index,
+  const classes = classnames(`${prefixCls}`, {
+    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-active`]: index === context.index,
   }, className);
 
   function handleClick() {

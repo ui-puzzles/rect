@@ -1,0 +1,72 @@
+// Add component style rules.
+$pr-divider: "pr-divider";
+
+$divider-font-weight: 400;
+$divider-padding-y: 0.375rem !default;
+$divider-padding-x: 0.75rem !default;
+$divider-font-family: $font-family-base !default;
+$divider-font-size: $font-size-base !default;
+$divider-line-height: $line-height-base !default;
+$divider-inner-text-background: $body-bg !default;
+
+// Divider border
+$divider-border-width: $border-width !default;
+$divider-border-color: $gray-200 !default;
+
+/**
+* default: dashed = false; align = center; mode = horizontal;
+*/
+.#{$pr-divider} {
+  clear: both;
+
+  &.#{$pr-divider}-with-text {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.#{$pr-divider}-left {
+    justify-content: flex-start;
+
+    .#{$pr-divider}-text {
+      left: 5%;
+    }
+  }
+
+  &.#{$pr-divider}-right {
+    justify-content: flex-end;
+
+    .#{$pr-divider}-text {
+      right: 5%;
+    }
+  }
+
+  &.#{$pr-divider}-dashed {
+    border-top-style: dashed;
+  }
+
+  &-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 $divider-padding-x;
+    background-color: $divider-inner-text-background;
+  }
+
+  &.#{$pr-divider}-h {
+    display: flex;
+    margin: 1.5rem 0;
+    width: 100%;
+    min-width: 100%;
+    border-top: $divider-border-width solid $divider-border-color;
+  }
+
+  &.#{$pr-divider}-v {
+    display: inline-block;
+    top: -0.06rem;
+    height: 0.9rem;
+    margin: 0 0.75rem;
+    vertical-align: middle;
+    border-left: $divider-border-width solid $divider-border-color;
+  }
+}

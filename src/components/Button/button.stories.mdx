@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
 import Button from './button';
+import Divider from '../Divider';
 import ButtonApi from './README.en-US.md';
 
 <Meta title="Components/Gereral/Button" component={Button} />
@@ -18,6 +19,7 @@ It's easy to change the button style by setting the theme prop. Available option
 <Canvas>
   <Story name="theme">
     <Button label="default" />
+    <Divider mode="vertical" />
     <Button label="primary" btnType="primary" />
   </Story>
 </Canvas>
@@ -29,7 +31,9 @@ The button suports different size, available options: 'middle(as default)', 'sma
 <Canvas>
   <Story name="size">
     <Button label="small" size="small"  />
+    <Divider mode="vertical" />
     <Button label="middle" size="middle"  />
+    <Divider mode="vertical" />
     <Button label="large" size="large"  />
   </Story>
 </Canvas>

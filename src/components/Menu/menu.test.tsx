@@ -34,10 +34,10 @@ const generateMenu = (props: MenuProps) => {
 
 const createStyleEle = () => {
   const cssRules = `
-    .puzzle-menu-sub-item {
+    .pr-menu-sub-item {
       display: none;
     }
-    .puzzle-menu-sub-opened {
+    .pr-menu-sub-opened {
       display: block;
     }
   `;
@@ -65,20 +65,20 @@ describe('test Menu and MenuItem component in default(horizontal) mode', () => {
 
   it('it should render correct Menu and MenuItem based on default props', () => {
     expect(menuElement).toBeInTheDocument();
-    expect(menuElement).toHaveClass('puzzle-menu test');
+    expect(menuElement).toHaveClass('pr-menu test');
     expect(menuElement.querySelectorAll(':scope > li').length).toEqual(4);
-    expect(activeElement).toHaveClass('puzzle-menu-item puzzle-menu-item-active');
-    expect(disabledElement).toHaveClass('puzzle-menu-item puzzle-menu-item-disabled');
+    expect(activeElement).toHaveClass('pr-menu-item pr-menu-item-active');
+    expect(disabledElement).toHaveClass('pr-menu-item pr-menu-item-disabled');
   });
 
   it('click item should change active and call the callback correctly', () => {
     const defaultItem = wrapper.getByText('default');
     fireEvent.click(defaultItem);
-    expect(defaultItem).toHaveClass('puzzle-menu-item-active');
-    expect(activeElement).not.toHaveClass('puzzle-menu-item-active');
+    expect(defaultItem).toHaveClass('pr-menu-item-active');
+    expect(activeElement).not.toHaveClass('pr-menu-item-active');
     expect(defaultProps.onSelect).toHaveBeenCalledWith('2');
     fireEvent.click(disabledElement);
-    expect(disabledElement).not.toHaveClass('puzzle-menu-item-active');
+    expect(disabledElement).not.toHaveClass('pr-menu-item-active');
     expect(defaultProps.onSelect).not.toHaveBeenCalledWith('1');
   });
 
@@ -89,7 +89,7 @@ describe('test Menu and MenuItem component in default(horizontal) mode', () => {
     activeElement = wrapper.getByText('active');
     disabledElement = wrapper.getByText('disabled');
 
-    expect(menuElement).toHaveClass('puzzle-menu puzzle-menu-v');
+    expect(menuElement).toHaveClass('pr-menu pr-menu-v');
   });
 
   // it('it should dropdown items when hover on submenu element', async () => {

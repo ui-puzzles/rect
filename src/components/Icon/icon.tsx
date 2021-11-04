@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
-const ICON_CLS_PREFIX = 'puzzle-icon';
+const prefixCls = 'pr-icon';
 
 // add all the icons
 library.add(fas);
@@ -23,8 +23,8 @@ export interface IconProps extends FontAwesomeIconProps {
 
 const Icon: React.FC<IconProps> = (props) => {
   const { className, theme, ...restProps } = props;
-  const classes = classnames(`${ICON_CLS_PREFIX}`, className, {
-    [`${ICON_CLS_PREFIX}-${theme}`]: theme
+  const classes = classnames(`${prefixCls}`, className, {
+    [`${prefixCls}-${theme}`]: theme
   });
 
   return (

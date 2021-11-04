@@ -1,7 +1,7 @@
-$puzzle-upload: "puzzle-upload";
-$puzzle-dragger: "puzzle-dragger";
+$pr-upload: "pr-upload";
+$pr-dragger: "pr-dragger";
 
-.#{$puzzle-upload} {
+.#{$pr-upload} {
   &-wrapper {
     display: inline-block;
   }
@@ -68,18 +68,18 @@ $puzzle-dragger: "puzzle-dragger";
     &:hover {
       background-color: $gray-200;
 
-      .#{$puzzle-upload}-item-status {
+      .#{$pr-upload}-item-status {
         display: none;
       }
 
-      .#{$puzzle-upload}-item-action {
+      .#{$pr-upload}-item-action {
         display: block;
       }
     }
   }
 }
 
-.#{$puzzle-dragger} {
+.#{$pr-dragger} {
   display: flex;
   justify-content: center;
   align-items: center;

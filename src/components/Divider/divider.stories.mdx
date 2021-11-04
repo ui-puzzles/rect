@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Divider from './divider';
+import ReadMe from './README.en-US.md';
+
+<Meta title="Components/Layout/Divider" component={Divider} />
+
+## Divider
+
+Divider the difficent content area and sections.
+
+## Examples
+
+### default & align
+
+The default is a horizontal dividing line. You also can contain a text when the mode is setted 'horizontal'.
+
+If the Divider contains a text, you can specify the position of the texts by align.
+
+<Canvas>
+  <Story name="align">
+    <h4 style={{ textAlign: 'center'}}>The Lost Love</h4>
+    <Divider>William Wordsworth</Divider>
+    <p>She dwelt among the untrodden ways beside the springs of dove.</p>
+    <Divider align="left">align left</Divider>
+    <p>A maid whom there were none to praise, and very few to love.</p>
+    <Divider dashed />
+    <p>A violet by a mossy stone, half hidden from the eye!</p>
+    <Divider align="right">align right</Divider>
+    <p>Fair as a star, when only one is shining in the sky! She lived unknown, and few could know, when lucy ceased to be.</p>
+    <p>But she is in her grave, and oh, the difference to me!</p>
+    <Divider />
+  </Story>
+</Canvas>
+
+### mode
+
+Specify mode as "vertical" to make it vertical. NOTE: In Vertical mode the Divider can't contain texts.
+
+<Canvas>
+  <Story name="mode">
+    <span>view</span>
+    <Divider mode="vertical" />
+    <span>edit</span>
+    <Divider mode="vertical" />
+    <span>delete</span>
+    <Divider mode="vertical" />
+    <a href="#">new</a>
+  </Story>
+</Canvas>
+
+<ReadMe />
+

@@ -5,7 +5,7 @@ import Icon, { IconProp } from '../Icon';
 import { warning, isDev, isString } from '../../utils';
 import { ButtonProps, ButtonSize } from './interface';
 
-const BTN_CLS_PREFIX = 'puzzle-btn';
+const prefixCls = 'pr-btn';
 
 const Button: FC<ButtonProps> = (props) => {
   const {
@@ -33,12 +33,12 @@ const Button: FC<ButtonProps> = (props) => {
   })(size as ButtonSize);
 
   const classes = classNames(
-    `${BTN_CLS_PREFIX}`,
-    { [`${BTN_CLS_PREFIX}-${btnType}`]: btnType !== 'default' },
-    { [`${BTN_CLS_PREFIX}-${shape}`]: shape !== 'round' },
-    { [`${BTN_CLS_PREFIX}-${sizeSuffix}`]: size !== 'middle' },
-    { [`${BTN_CLS_PREFIX}-disabled`]: btnType === 'link' && disabled },
-    { [`${BTN_CLS_PREFIX}-block`]: block },
+    `${prefixCls}`,
+    { [`${prefixCls}-${btnType}`]: btnType !== 'default' },
+    { [`${prefixCls}-${shape}`]: shape !== 'round' },
+    { [`${prefixCls}-${sizeSuffix}`]: size !== 'middle' },
+    { [`${prefixCls}-disabled`]: btnType === 'link' && disabled },
+    { [`${prefixCls}-block`]: block },
     className
   );
   /**
@@ -68,7 +68,7 @@ const Button: FC<ButtonProps> = (props) => {
     <button disabled={disabled} className={classes} {...restProps} data-testid="test-btn">
       {loading && <Icon icon="spinner" spin />}
       {renderIcon()}
-      <span className={`${BTN_CLS_PREFIX}-label`}>
+      <span className={`${prefixCls}-label`}>
         {label || children}
       </span>
     </button>
