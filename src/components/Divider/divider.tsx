@@ -19,7 +19,7 @@ const Divider: FC<DividerProps> = (props) => {
   const classNames = classnames(
     prefixCls,
     {
-      [`${prefixCls}-with-text`]: children,
+      [`${prefixCls}-with-text`]: children && mode === 'horizontal',
       [`${prefixCls}-v`]: mode === 'vertical',
       [`${prefixCls}-h`]: mode === 'horizontal',
       [`${prefixCls}-${align}`]: align && align !== 'center',
@@ -29,7 +29,7 @@ const Divider: FC<DividerProps> = (props) => {
   )
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} data-testid="test-divider">
       {
         children && mode === 'horizontal' ? (
           <span className={`${prefixCls}-text`} style={textStyle}>{children}</span>

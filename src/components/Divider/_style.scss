@@ -19,6 +19,23 @@ $divider-border-color: $gray-200 !default;
 .#{$pr-divider} {
   clear: both;
 
+  &.#{$pr-divider}-h {
+    display: flex;
+    margin: 1.5rem 0;
+    width: 100%;
+    min-width: 100%;
+    border-top: $divider-border-width solid $divider-border-color;
+  }
+
+  &.#{$pr-divider}-v {
+    display: inline-block;
+    top: -0.06rem;
+    height: 0.9rem;
+    margin: 0 0.75rem;
+    vertical-align: middle;
+    border-left: $divider-border-width solid $divider-border-color;
+  }
+
   &.#{$pr-divider}-with-text {
     position: relative;
     justify-content: center;
@@ -41,10 +58,6 @@ $divider-border-color: $gray-200 !default;
     }
   }
 
-  &.#{$pr-divider}-dashed {
-    border-top-style: dashed;
-  }
-
   &-text {
     position: absolute;
     top: 50%;
@@ -53,20 +66,7 @@ $divider-border-color: $gray-200 !default;
     background-color: $divider-inner-text-background;
   }
 
-  &.#{$pr-divider}-h {
-    display: flex;
-    margin: 1.5rem 0;
-    width: 100%;
-    min-width: 100%;
-    border-top: $divider-border-width solid $divider-border-color;
-  }
-
-  &.#{$pr-divider}-v {
-    display: inline-block;
-    top: -0.06rem;
-    height: 0.9rem;
-    margin: 0 0.75rem;
-    vertical-align: middle;
-    border-left: $divider-border-width solid $divider-border-color;
+  &.#{$pr-divider}-dashed {
+    border-top-style: dashed;
   }
 }
