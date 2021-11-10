@@ -73,7 +73,7 @@
     ],
     "*.{scss,css}": [
       "npm run lint:style",
-      "prettier --write"
+      "prettier --write --ignore-unknown"
     ]
   },
   "eslintConfig": {
@@ -125,6 +125,7 @@
     "commander": "^8.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
