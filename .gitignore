@@ -12,6 +12,11 @@
 /build
 
 /dist
+yarn.lock
+package-lock.json
+
+.idea/
+/.vscode/
 
 # misc
 .DS_Store
