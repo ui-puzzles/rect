@@ -1,6 +1,6 @@
 
-import Template from './template';
+import Alert from './alert';
 
-export type { TemplateProps } from './interface';
+export type { AlertProps } from './interface';
 
-export default Template;
+export default Alert;

@@ -1,4 +1,4 @@
-$pr-btn: "pr-btn";
+$pr-btn: 'pr-btn';
 
 // base properties
 $btn-font-weight: 400;
@@ -38,6 +38,48 @@ $btn-border-radius-half: 50% !default;
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
+// mixins
+@mixin button-size($padding-x, $padding-y, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin button-style(
+  $background,
+  $border-color,
+  $color,
+  $hover-background: lighten($background, 7.5%),
+  $hover-border-color: lighten($border-color, 10%),
+  $hover-color: $color
+) {
+  color: $color;
+  background: $background;
+  border-color: $border-color;
+
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border-color;
+  }
+
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border-color;
+    outline: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background: $background;
+    border-color: $border-color;
+    cursor: not-allowed;
+  }
+}
+
 .#{$pr-btn} {
   position: relative;
   display: inline-block;
@@ -49,20 +91,8 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   background-image: none;
   border: $btn-border-width solid transparent;
 
-  @include button-size(
-    $btn-padding-x,
-    $btn-padding-y,
-    $btn-font-size,
-    $btn-border-radius
-  );
-  @include button-style(
-    $white,
-    $gray-400,
-    $body-color,
-    $white,
-    $primary,
-    $primary
-  );
+  @include button-size($btn-padding-x, $btn-padding-y, $btn-font-size, $btn-border-radius);
+  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
 
   &-label {
     padding: 0 8px;
@@ -140,8 +170,10 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 
 .#{$pr-btn}-circle {
   @include flex(inline-flex);
-  @include button-circle($circle-radius-base);
 
+  width: $circle-radius-base * 2;
+  height: $circle-radius-base * 2;
+  border-radius: 50%;
   line-height: $line-height-sm;
   white-space: normal;
   overflow: hidden;

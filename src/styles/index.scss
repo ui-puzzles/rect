@@ -1,32 +1,35 @@
 // basic variables
-@import "variables";
+@import 'variables';
 
 // layout
-@import "reboot";
+@import 'reboot';
 
 // mixins
-@import "mixins";
+@import 'mixins';
 
 // animation
-@import "animation";
+@import 'animation';
 
 // Button
-@import "../components/Button/style";
+@import '../components/Button/style';
 
 // Menu
-@import "../components/Menu/style";
+@import '../components/Menu/style';
 
 // Icon
-@import "../components/Icon/style";
+@import '../components/Icon/style';
 
 // Input
-@import "../components/Input/style";
+@import '../components/Input/style';
 
 // Upload
-@import "../components/Upload/style";
+@import '../components/Upload/style';
 
 // Progress
-@import "../components/Progress/style";
+@import '../components/Progress/style';
 
 // Divider
-@import "../components/Divider/style";
+@import '../components/Divider/style';
+
+// Alert
+@import '../components/Alert/style';

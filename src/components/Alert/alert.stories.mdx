@@ -1,19 +1,64 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Template from './template';
+import Divider from '../Divider';
+import Button from '../Button';
+import Icon from '../Icon';
+import Alert from './alert';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/secondaryClassification/Template" component={Template} />
+<Meta title="Components/Feedback/Alert" component={Alert} />
 
-## Template
+## Alert
 
-The descriptions of your component.
+Used to display some suggestive informations and attachs attention.
 
 ## Examples
 
+### default
+
+By default, the type is "info" and the alignment is "left".
+
 <Canvas>
-  <Story name="your name">
-    
+  <Story name="default">
+    <Alert title="default Alert" />
+  </Story>
+</Canvas>
+
+### type and border
+
+Four options for type are available: 'info', 'warning', 'success' and 'danger'. Also can set the bordered = 'true' to display border or not.
+
+<Canvas>
+  <Story name="type and bodered">
+    <Divider dashed textStyle={{ color: '#999' }}>info</Divider>
+    <Alert title="info Alert" showIcon />
+    <Divider dashed textStyle={{ color: '#999' }}>danger</Divider>
+    <Alert title="danger Alert" type="danger" showIcon />
+    <Divider dashed textStyle={{ color: '#999' }}>warning</Divider>
+    <Alert title="warning Alert" type="warning" showIcon />
+    <Divider dashed textStyle={{ color: '#999' }}>success</Divider>
+    <Alert title="success Alert" type="success" showIcon />
+    <Divider dashed textStyle={{ color: '#999' }}>bordered</Divider>
+    <Alert title="with border" type="info" bordered />
+    <Divider dashed textStyle={{ color: '#999' }}>bordered</Divider>
+    <Alert title="with border" type="success" bordered />
+  </Story>
+</Canvas>
+
+### customeIcon & content & closable & extra
+
+<Canvas>
+  <Story name="icon and content">
+    <Divider dashed textStyle={{ color: '#999' }}>customeIcon</Divider>
+    <Alert title="with icon" customIcon={<Icon icon="edit" theme="info" />} />
+    <Divider dashed textStyle={{ color: '#999' }}>closable</Divider>
+    <Alert title="with closable" type="danger" closable />
+    <Divider dashed textStyle={{ color: '#999' }}>content</Divider>
+    <Alert title="title" content="Alert content" type="warning" iconSize="lg" showIcon closable />
+    <Divider dashed textStyle={{ color: '#999' }}>certen</Divider>
+    <Alert title="with align" type="success" showIcon align="center" />
+    <Divider dashed textStyle={{ color: '#999' }}>extra</Divider>
+    <Alert title="with extra" type="info" extra={<Button label="Alert extra" size="small" />} />
   </Story>
 </Canvas>
 
