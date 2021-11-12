@@ -34,4 +34,5 @@ The table to display the props of your component
 
 - finish basic function.
 - added storybook.
+- added unit tests.
 
