@@ -9,54 +9,6 @@
   align-items: $items;
 }
 
-// button
-@mixin button-size($padding-x, $padding-y, $font-size, $border-radius) {
-  padding: $padding-y $padding-x;
-  font-size: $font-size;
-  border-radius: $border-radius;
-}
-
-@mixin button-circle($circle-radius) {
-  width: $circle-radius * 2;
-  height: $circle-radius * 2;
-  border-radius: 50%;
-}
-
-@mixin button-style(
-  $background,
-  $border-color,
-  $color,
-  $hover-background: lighten($background, 7.5%),
-  $hover-border-color: lighten($border-color, 10%),
-  $hover-color: $color
-) {
-  color: $color;
-  background: $background;
-  border-color: $border-color;
-
-  &:hover {
-    color: $hover-color;
-    background: $hover-background;
-    border-color: $hover-border-color;
-  }
-
-  &:focus,
-  &.focus {
-    color: $hover-color;
-    background: $hover-background;
-    border-color: $hover-border-color;
-    outline: none;
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $color;
-    background: $background;
-    border-color: $border-color;
-    cursor: not-allowed;
-  }
-}
-
 @mixin zoom-animation(
   $direction: 'top',
   $scaleStart: scaleY(0),

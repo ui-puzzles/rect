@@ -1,2 +1,70 @@
-// Add component style rules.
-$pr-template: 'pr-template';
+// @use "sass:math";
+
+$pr-alert: 'pr-alert';
+
+// basic properties
+$alert-font-weight: 400;
+$alert-padding-y: 0.375rem !default;
+$alert-padding-x: 0.75rem !default;
+$alert-font-family: $font-family-base !default;
+$alert-font-size: $font-size-base !default;
+$alert-font-size-sm: $font-size-sm !default;
+$alert-line-height: $line-height-base !default;
+
+// border
+$alert-border-width: $border-width !default;
+$alert-border-radius: $border-radius !default;
+$alert-border-color: $gray-400 !default;
+
+// icon
+$alert-icon-color: $gray-600 !default;
+
+$type-colors: (
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+);
+
+.#{$pr-alert} {
+  @include flex(flex, row, flex-start, flex-start);
+
+  padding: $alert-padding-y $alert-padding-x;
+  border-radius: $alert-border-radius;
+
+  &-wrapper {
+    flex: 1;
+  }
+
+  &-title {
+    margin-bottom: 4px;
+  }
+
+  &-content {
+    font-size: $alert-font-size-sm;
+  }
+
+  &-icon {
+    margin-right: $alert-padding-x;
+  }
+
+  &-suffix {
+    margin-left: $alert-padding-x;
+
+    > .pr-icon {
+      color: $alert-icon-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.#{$pr-alert}-bordered {
+  border: $alert-border-width solid transparent;
+}
+
+@each $key, $val in $type-colors {
+  .#{$pr-alert}-#{$key} {
+    border-color: $val;
+    background-color: rgba($val, 0.2);
+  }
+}
