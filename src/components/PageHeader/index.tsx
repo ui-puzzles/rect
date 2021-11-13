@@ -1,6 +1,6 @@
 
-import Template from './template';
+import PageHeader from './pageHeader';
 
-export type { TemplateProps } from './interface';
+export type { PageHeaderProps } from './interface';
 
-export default Template;
+export default PageHeader;

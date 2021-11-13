@@ -1,19 +1,67 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Template from './template';
+import PageHeader from './pageHeader';
+import Divider from '../Divider';
+import Button from '../Button';
+import Icon from '../Icon';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/secondaryClassification/Template" component={Template} />
+<Meta title="Components/Navigation/PageHeader" component={PageHeader} />
 
-## Template
+## PageHeader
 
-The descriptions of your component.
+A page header with some common actions. Usually can be used to display basic infomations about the page.  It can also be used as inter-page navigation.
 
 ## Examples
 
+### Default \ Title \ Description \ TitleMode
+
+1. Default
+This is a standard page header with a back action.
+
+2. With title and description
+Users can add title and description for the page.
+
+3. TitleMode
+Both title and description is exist, user can specify the alignment of them.
+
 <Canvas>
-  <Story name="your name">
-    
+  <Story name="Default">
+    <Divider dashed textStyle={{ color: '#999' }}>default</Divider>
+    <PageHeader />
+    <Divider dashed textStyle={{ color: '#999' }}>title</Divider>
+    <PageHeader title="header title" />
+    <Divider dashed textStyle={{ color: '#999' }}>title and content</Divider>
+    <PageHeader title="header title" description="page desc" />
+    <Divider dashed textStyle={{ color: '#999' }}>titleMode</Divider>
+    <PageHeader title="header title" description="page desc" titleMode="vertical" />
+  </Story>
+</Canvas>
+
+### extra \ backIcon \ children \ style
+
+1. extra
+Users can custom own actions by extra. As follows, added an "Edit" action with Button element.
+
+2. backIcon
+Users can custom yourself icon instead of default.
+
+3. children
+As you know, It'll render below the title when there are children in PageHeader.
+
+4. style and className
+Users can add additional css class and style. 
+
+<Canvas>
+  <Story name="Extra and backIcon">
+    <Divider dashed textStyle={{ color: '#999' }}>extra</Divider>
+    <PageHeader title="HOME" extra={<Button label="Edit" size="small" btnType="primary" />} />
+    <Divider dashed textStyle={{ color: '#999' }}>custom backIcon</Divider>
+    <PageHeader title="CUSTOM ICON" backIcon={<Icon icon="chevron-left" size="lg" />} />
+    <Divider dashed textStyle={{ color: '#999' }}>with children</Divider>
+    <PageHeader title="WITH CHILDREN" description="header description"><p>We're gonna do this together.</p></PageHeader>
+    <Divider dashed textStyle={{ color: '#999' }}>style</Divider>
+    <PageHeader title="STYLE" description="page desc" titleMode="vertical" style={{ background: '#f5f5f5' }} />
   </Story>
 </Canvas>
 
