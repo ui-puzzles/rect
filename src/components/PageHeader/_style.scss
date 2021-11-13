@@ -1,2 +1,61 @@
-// Add component style rules.
-$pr-template: "pr-template";
+$pr-ph: 'pr-page-header';
+
+// basic properties
+$ph-title-font-weight: $font-weight-bold !default;
+$ph-font-size-lg: $font-size-lg !default;
+$ph-font-size-sm: $font-size-sm !default;
+$ph-padding-y: 0.375rem !default;
+$ph-padding-x: 1rem !default;
+$ph-desc-color: $gray-500 !default;
+
+// border and shadow
+$ph-border-width: $border-width !default;
+$ph-border-color: $gray-400 !default;
+$ph-box-shadow: $box-shadow-sm !default;
+
+.#{$pr-ph} {
+  @include flex(flex, column, center, flex-start);
+
+  min-height: 50px;
+  width: 100%;
+  min-width: 100%;
+  padding: $ph-padding-y $ph-padding-x;
+  box-shadow: $ph-box-shadow;
+
+  &-icon {
+    // expand the hot spot
+    padding: $ph-padding-y $ph-padding-x $ph-padding-y 0;
+  }
+
+  &-wrapper {
+    @include flex(flex, row, flex-start);
+
+    width: 100%;
+
+    .#{$pr-ph}-info {
+      @include flex(flex, row, flex-start);
+
+      flex: 1;
+    }
+
+    .#{$pr-ph}-title {
+      font-size: $ph-font-size-lg;
+      font-weight: $ph-title-font-weight;
+    }
+
+    .#{$pr-ph}-desc {
+      font-size: $ph-font-size-sm;
+      margin-left: $ph-padding-x;
+      color: $ph-desc-color;
+    }
+
+    .#{$pr-ph}-v {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .#{$pr-ph}-desc {
+        margin-left: 0;
+      }
+    }
+  }
+}
