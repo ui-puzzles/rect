@@ -31,3 +31,9 @@ The table to display the props of your component
 
 - finish basic functions.
 - added storybook docs.
+
+2021-11-13
+
+#### tests
+
+- added unit tests
