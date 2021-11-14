@@ -1,6 +1,6 @@
 
-import Template from './template';
+import Card from './card';
 
-export type { TemplateProps } from './interface';
+export type { CardProps, CardGridProps, CardMetaProps } from './interface';
 
-export default Template;
+export default Card;

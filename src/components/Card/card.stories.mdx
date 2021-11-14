@@ -1,19 +1,56 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Template from './template';
+import Card from './card';
+import Divider from '../Divider';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/secondaryClassification/Template" component={Template} />
+<Meta title="Components/Data Display/Card" component={Card} />
 
-## Template
+## Card
 
 The descriptions of your component.
 
+
 ## Examples
 
+### default / title / extra
+
 <Canvas>
-  <Story name="your name">
-    
+  <Story name="basic">
+    <Divider dashed textStyle={{ color: '#999' }}>default</Divider>
+    <Card>A home is only made by people within it</Card>
+    <Divider dashed textStyle={{ color: '#999' }}>title</Divider>
+    <Card title="Featured Articles">A home is only made by people within it</Card>
+    <Divider dashed textStyle={{ color: '#999' }}>extra</Divider>
+    <Card
+      title="Featured Articles"
+      extra={<a href="#">more</a>}
+    >A home is only made by people within it</Card>
+  </Story>
+</Canvas>
+
+### cover / coverMode / size
+
+<Canvas>
+  <Story name="cover and size">
+    <Divider dashed textStyle={{ color: '#999' }}>cover</Divider>
+    <Card
+      width={200}
+      cover={<img alt="card cover" src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Bookshelf.png" />}
+    >A home is only made by people within it</Card>
+    <Divider dashed textStyle={{ color: '#999' }}>coverMode = "fill"</Divider>
+    <Card
+      width={200}
+      title="Fill"
+      coverMode="fill"
+      minHeight={200}
+      cover={<img alt="card cover" src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Bookshelf.png" />}
+    >A home is only made by people within it</Card>
+    <Divider dashed textStyle={{ color: '#999' }}>extra</Divider>
+    <Card
+      title="Featured Articles"
+      extra={<a href="#">more</a>}
+    >A home is only made by people within it</Card>
   </Story>
 </Canvas>
 

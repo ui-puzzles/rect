@@ -9,10 +9,18 @@ export const isString = (str: any) => typeof str === 'string';
 
 export const isPromise = (val: any) => val instanceof Promise;
 
+export const isUndef = (val: any) => val === undefined || val === null;
+
 export const warning = (msg: string) => {
   if (!msg) return;
 
   console.warn(`Warning: ${msg}`);
+};
+
+export const logError = (msg: string) => {
+  if (!msg) return;
+
+  console.error(`ERROR: ${msg}`);
 };
 
 export const isDev = (() => process.env.NODE_ENV !== 'production')();
@@ -38,5 +46,25 @@ const  autoFixFontSize = (
     if (size && scale < 1) {
       textElem.style.transform = `scale(${scale}) translateX(-50%)`;
     }
+  }
+};
+
+export const cleanObj= <T>(val: T): Pick<T, keyof T> | undefined => {
+  try {
+    if (!isObj(val)) throw new TypeError(`${val} must be an plain object.`);
+
+    const ret = {} as Pick<T, keyof T>;
+    const valKeys = Object.keys(val) as Array<keyof T>;
+
+    valKeys.forEach(k => {
+      if (!isUndef(val[k])) {
+        ret[k] = val[k];
+      }
+    });
+
+    return ret;
+  } catch (error) {
+    logError(`${error}`);
+    return;
   }
 };
