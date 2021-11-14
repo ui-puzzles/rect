@@ -1,2 +1,102 @@
-// Add component style rules.
-$pr-template: "pr-template";
+$pr-card: 'pr-card';
+
+$card-border-radius: $border-radius;
+$card-border-color: $gray-300;
+$card-box-shadow: $shadow1-center;
+$card-padding-x: $padding-x-lg;
+$card-padding-y: $padding-y-lg;
+$card-header-height: $block-size-base;
+$card-content-font-size: $font-size-sm;
+$card-white: $white;
+
+.#{$pr-card} {
+  display: inline-block;
+  border: $border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+
+  &-header {
+    @include flex(flex, row, space-between);
+
+    width: 100%;
+    padding: 0 $card-padding-x;
+    height: $card-header-height;
+    border-bottom: $border-width solid $card-border-color;
+
+    &-title,
+    &-extra {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-extra {
+      margin-left: $card-padding-x;
+    }
+  }
+
+  &-cover {
+    width: 100%;
+    border-radius: $card-border-radius $card-border-radius 0 0;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-content,
+  &-footer {
+    padding: $card-padding-y $card-padding-x;
+    font-size: $card-content-font-size;
+  }
+}
+
+.#{$pr-card}-fill {
+  position: relative;
+  color: $card-white;
+
+  .#{$pr-card}-cover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: $card-border-radius;
+    z-index: 0;
+
+    // &::before {
+    //   position: absolute;
+    //   content: '';
+    //   width: 100%;
+    //   height: 100%;
+    //   background-color: rgba($color: #000000, $alpha: 0.1);
+    // }
+
+    > img {
+      height: 100%;
+    }
+  }
+
+  .#{$pr-card}-cover-blur {
+    filter: blur(4px);
+  }
+
+  .#{$pr-card}-header,
+  .#{$pr-card}-content,
+  .#{$pr-card}-footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  .#{$pr-card}-header {
+    border-bottom-color: $card-white;
+  }
+}
+
+.#{$pr-card}-effect {
+  box-shadow: none;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: $card-box-shadow;
+  }
+}

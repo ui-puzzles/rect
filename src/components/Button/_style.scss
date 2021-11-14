@@ -92,7 +92,7 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border: $btn-border-width solid transparent;
 
   @include button-size($btn-padding-x, $btn-padding-y, $btn-font-size, $btn-border-radius);
-  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
+  @include button-style($white, $gray-300, $body-color, $white, $primary, $primary);
 
   &-label {
     padding: 0 8px;
