@@ -1,5 +1,36 @@
 /**
-* basic properties variables
+* spacing
+**/
+$spacing-none: 0;
+$spacing-1: 2px;
+$spacing-2: 4px;
+$spacing-3: 6px;
+$spacing-4: 8px;
+$spacing-5: 10px;
+$spacing-6: 12px;
+$spacing-7: 16px;
+$spacing-8: 20px;
+$spacing-9: 24px;
+$spacing-10: 32px;
+$spacing-11: 36px;
+$spacing-12: 40px;
+$spacing-13: 48px;
+$spacing-14: 56px;
+$spacing-15: 60px;
+$spacing-16: 64px;
+$spacing-17: 72px;
+$spacing-18: 80px;
+$spacing-19: 84px;
+$spacing-20: 96px;
+$spacing-21: 100px;
+$spacing-22: 120px;
+
+$spacing-small: $spacing-4 !default;
+$spacing-base: $spacing-7 !default;
+$spacing-large: $spacing-10 !default;
+
+/**
+* gray
 **/
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -13,6 +44,9 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
+/**
+* app colors
+**/
 $blue: #0d6efd !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -34,21 +68,48 @@ $light: $gray-100 !default;
 $dark: $gray-800 !default;
 
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark,
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
 );
 
-$font-family-sans-serif: -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
-  "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace: sfmono-regular, menlo, monaco, consolas,
-  "Liberation Mono", "Courier New", monospace !default;
+/**
+* transparent background
+**/
+$transparent-bg-100: rgba(
+  $color: #000,
+  $alpha: 0.1,
+) !default;
+$transparent-bg-200: rgba(
+  $color: #000,
+  $alpha: 0.2,
+) !default;
+$transparent-bg-300: rgba(
+  $color: #000,
+  $alpha: 0.35,
+) !default;
+$transparent-bg-400: rgba(
+  $color: #000,
+  $alpha: 0.4,
+) !default;
+$transparent-bg-500: rgba(
+  $color: #000,
+  $alpha: 0.5,
+) !default;
+
+/**
+* font-family
+**/
+$font-family-sans-serif: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue',
+  arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji' !default;
+$font-family-monospace: sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New',
+  monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
 // font-size
@@ -94,10 +155,7 @@ $body-bg: $white !default;
 $body-color: $gray-900 !default;
 $body-text-align: null !default;
 
-// Spacing
-$spacer: 1rem !default;
-
-$headings-margin-bottom: div($spacer, 2) !default;
+$headings-margin-bottom: div($spacing-base, 2) !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
@@ -107,8 +165,8 @@ $headings-color: null !default;
 // Paragraphs
 $paragraph-margin-bottom: 1rem !default;
 
-// 字体其他部分 heading list hr 等等
-$headings-margin-bottom: div($spacer, 2) !default;
+// others
+$headings-margin-bottom: div($spacing-base, 2) !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
@@ -159,7 +217,7 @@ $list-inline-padding: 0.5rem !default;
 
 $mark-bg: #fcf8e3 !default;
 
-$hr-margin-y: $spacer !default;
+$hr-margin-y: $spacing-base !default;
 
 // Code
 $code-font-size: $small-font-size !default;
@@ -173,15 +231,11 @@ $enable-pointer-cursor-for-buttons: true !default;
 $border-width: 1px !default;
 $border-color: $gray-300 !default;
 
-$border-radius: 0.25rem !default;
-$border-radius-lg: 0.3rem !default;
-$border-radius-sm: 0.2rem !default;
-
-// box shadow
-$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
-$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
-$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
-$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
+$border-radius-none: 0 !default;
+$border-radius-sm: 2px !default;
+$border-radius: 4px !default;
+$border-radius-lg: 8px !default;
+$border-radius-circle: 50% !default;
 
 // Progress bars
 $progress-font-size: $font-size-base * 0.75 !default;
@@ -189,3 +243,76 @@ $progress-bg: $gray-200 !default;
 $progress-border-radius: $border-radius !default;
 $progress-bar-color: $white !default;
 $progress-bar-transition: width 0.6s ease !default;
+
+/**
+* bock size
+**/
+$block-size-none: 0;
+$block-size-1: 4px;
+$block-size-2: 8px;
+$block-size-3: 12px;
+$block-size-4: 16px;
+$block-size-5: 20px;
+$block-size-6: 24px;
+$block-size-7: 28px;
+$block-size-8: 32px;
+$block-size-9: 36px;
+$block-size-10: 40px;
+$block-size-11: 44px;
+$block-size-12: 48px;
+$block-size-13: 52px;
+$block-size-14: 56px;
+$block-size-15: 60px;
+$block-size-16: 64px;
+$block-size-17: 68px;
+$block-size-18: 72px;
+$block-size-19: 76px;
+$block-size-20: 80px;
+$block-size-21: 84px;
+$block-size-22: 88px;
+$block-size-23: 92px;
+$block-size-24: 96px;
+$block-size-25: 100px;
+
+$block-size-mini: $block-size-6 !default;
+$block-size-small: $block-size-9 !default;
+$block-size-base: $block-size-12 !default;
+$block-size-large: $block-size-24 !default;
+
+/**
+* box-shadow
+**/
+$shadow-none: none;
+$shadow-special: 0 0 1px rgba($black, 0.3);
+$shadow1-center: 0 0 5px rgba($black, 0.1);
+$shadow1-up: 0 -2px 5px rgba($black, 0.1);
+$shadow1-down: 0 2px 5px rgba($black, 0.1);
+$shadow1-left: -2px 0 5px rgba($black, 0.1);
+$shadow1-right: 2px 0 5px rgba($black, 0.1);
+$shadow1-left-up: -2px -2px 5px rgba($black, 0.1);
+$shadow1-left-down: -2px 2px 5px rgba($black, 0.1);
+$shadow1-right-up: 2px -2px 5px rgba($black, 0.1);
+$shadow1-right-down: 2px 2px 5px rgba($black, 0.1);
+$shadow2-center: 0 0 10px rgba($black, 0.1);
+$shadow2-up: 0 -4px 10px rgba($black, 0.1);
+$shadow2-down: 0 4px 10px rgba($black, 0.1);
+$shadow2-left: -4px 0 10px rgba($black, 0.1);
+$shadow2-right: 4px 0 10px rgba($black, 0.1);
+$shadow2-left-up: -4px -4px 10px rgba($black, 0.1);
+$shadow2-left-down: -4px 4px 10px rgba($black, 0.1);
+$shadow2-right-up: 4px -4px 10px rgba($black, 0.1);
+$shadow2-right-down: 4px 4px 10px rgba($black, 0.1);
+$shadow3-center: 0 0 20px rgba($black, 0.1);
+$shadow3-up: 0 -8px 20px rgba($black, 0.1);
+$shadow3-down: 0 8px 20px rgba($black, 0.1);
+$shadow3-left: -8px 0 20px rgba($black, 0.1);
+$shadow3-right: 8px 0 20px rgba($black, 0.1);
+$shadow3-left-up: -8px -8px 20px rgba($black, 0.1);
+$shadow3-left-down: -8px 8px 20px rgba($black, 0.1);
+$shadow3-right-up: 8px -8px 20px rgba($black, 0.1);
+$shadow3-right-down: 8px 8px 20px rgba($black, 0.1);
+
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
