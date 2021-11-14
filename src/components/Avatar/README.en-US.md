@@ -31,3 +31,4 @@ The table to display the props of your component
 2021-11-14
 
 - added storybook docs.
+- added unit tests
