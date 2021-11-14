@@ -1,2 +1,121 @@
-// Add component style rules.
-$pr-template: "pr-template";
+$pr-avatar: 'pr-avatar';
+
+$avatar-size: $block-size-base !default;
+$avatar-color-text: $white !default;
+$avatar-color-bg: $gray-500 !default;
+$avatar-extra-color-bg: $gray-300 !default;
+$avatar-font-size: $font-size-lg !default;
+$avatar-circle-border-radius: $border-radius-circle !default;
+$avatar-square-border-radius: $border-radius !default;
+$avatar-extra-size: $block-size-5 !default;
+$avatar-bg-transparent: $transparent-bg-300 !default;
+
+.#{$pr-avatar} {
+  @include flex(inline-flex);
+
+  position: relative;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: $avatar-circle-border-radius;
+  background-color: $avatar-color-bg;
+  color: $avatar-color-text;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: $avatar-font-size;
+
+  &-text {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 center;
+    transform: translateX(-50%);
+    font-size: $avatar-font-size;
+    // avoid inherit parent's line-height to result in can't align center of text.
+    line-height: 1;
+    user-select: none;
+  }
+
+  &-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: $avatar-circle-border-radius;
+    overflow: hidden;
+
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-extra {
+    @include flex;
+
+    width: $avatar-extra-size;
+    height: $avatar-extra-size;
+    border-radius: $avatar-circle-border-radius;
+    background-color: $avatar-extra-color-bg;
+    overflow: hidden;
+
+    > .pr-icon {
+      max-width: $avatar-extra-size * 0.5;
+      max-height: $avatar-extra-size * 0.5;
+    }
+  }
+}
+
+.#{$pr-avatar}-square {
+  border-radius: $avatar-square-border-radius;
+
+  .#{$pr-avatar}-image {
+    border-radius: $avatar-square-border-radius;
+  }
+}
+
+.#{$pr-avatar}-with-widget {
+  .#{$pr-avatar}-extra {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(3px, 3px);
+  }
+}
+
+.#{$pr-avatar}-with-mask {
+  overflow: hidden;
+
+  &::before,
+  .#{$pr-avatar}-extra {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.01;
+    transition: opacity 0.25s;
+  }
+
+  &::before {
+    content: '';
+    background-color: $avatar-bg-transparent;
+    z-index: 1;
+  }
+
+  .#{$pr-avatar}-extra {
+    background-color: transparent;
+    z-index: 2;
+
+    > .pr-icon {
+      max-width: none;
+      max-height: none;
+    }
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+
+    .#{$pr-avatar}-extra {
+      opacity: 1;
+    }
+  }
+}

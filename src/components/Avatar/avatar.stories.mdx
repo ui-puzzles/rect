@@ -1,19 +1,79 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Template from './template';
+import Avatar from './index';
+import Divider from '../Divider';
+import Icon from '../Icon';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/secondaryClassification/Template" component={Template} />
+<Meta title="Components/Data Display/Avatar" component={Avatar} />
 
-## Template
+## Avatar
 
-The descriptions of your component.
+Avatar can be used to display profile phote of users simply. It supports images, Icons, or letters.
 
 ## Examples
 
+There are some examples as below which can help you get started quickly.
+
+### default / shape / extra
+
+1. default
+By default, it'll get circle and the content can be text, Icon and image. when the content is text, the font size will automatically adjust to fit the content.
+
+2. shape
+Two options of "circle" and "square" are available for shape. By default the value is "circle".
+
+3. extra
+User can custom extra element what they want.
+
 <Canvas>
-  <Story name="your name">
-    
+  <Story name="default and shape">
+    <Divider dashed textStyle={{ color: '#999' }}>default</Divider>
+    <Avatar>Sunny</Avatar>
+    <Divider dashed textStyle={{ color: '#999' }}>shape</Divider>
+    <Avatar shape="square">Fu</Avatar>
+    <Divider dashed textStyle={{ color: '#999' }}>extra</Divider>
+    <Avatar extra={<Icon icon="undo-alt" theme="primary" />}>Fu</Avatar>
+    <Divider dashed textStyle={{ color: '#999' }}>extra and shape</Divider>
+    <Avatar shape="square" extra={<Icon icon="undo-alt" theme="primary" />}>Fu</Avatar>
+    <Divider dashed textStyle={{ color: '#999' }}>children are image</Divider>
+    <Avatar shape="square" extra={<Icon icon="undo-alt" theme="primary" />}>
+      <img src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Reactjs_logo.png" />
+    </Avatar>
+    <Divider mode="vertical" />
+     <Avatar extra={<Icon icon="undo-alt" theme="primary" />}>
+      <img src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Reactjs_logo.png" />
+    </Avatar>
+  </Story>
+</Canvas>
+
+### icon / size
+
+Specify the size of Avatar.
+
+<Canvas>
+  <Story name="icon and size">
+    <Divider dashed textStyle={{ color: '#999' }}>default icon</Divider>
+    <Avatar><Icon icon="user" /></Avatar>
+    <Divider dashed textStyle={{ color: '#999' }}>large icon and size</Divider>
+    <Avatar size={96}><Icon icon="user" size="3x" /></Avatar>
+  </Story>
+</Canvas>
+
+### extraType
+
+There are two types are available for "extra". By default is "widget".
+
+<Canvas>
+  <Story name="extraType">
+    <Divider dashed textStyle={{ color: '#999' }}>widget</Divider>
+    <Avatar extra={<Icon icon="undo-alt" />} extraType="mask">
+      <Icon icon="user" />
+    </Avatar>
+    <Divider dashed textStyle={{ color: '#999' }}>mask</Divider>
+    <Avatar size={100} extraType="mask" extra={<Icon icon="undo-alt" size="2x" />}>
+      <img src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Reactjs_logo.png" />
+    </Avatar>
   </Story>
 </Canvas>
 

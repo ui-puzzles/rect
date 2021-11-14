@@ -1,6 +1,6 @@
 
-import Template from './template';
+import Avatar from './avatar';
 
-export type { TemplateProps } from './interface';
+export type { AvatarProps } from './interface';
 
-export default Template;
+export default Avatar;
