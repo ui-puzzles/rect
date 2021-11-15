@@ -6,6 +6,8 @@ $card-box-shadow: $shadow1-center;
 $card-padding-x: $padding-x-lg;
 $card-padding-y: $padding-y-lg;
 $card-header-height: $block-size-base;
+$card-header-title-font-size: $font-size-base;
+$card-header-title-font-weight: $block-size-base;
 $card-content-font-size: $font-size-sm;
 $card-white: $white;
 
@@ -27,6 +29,11 @@ $card-white: $white;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    &-title {
+      font-size: $card-header-title-font-size;
+      font-weight: $font-weight-500;
     }
 
     &-extra {
