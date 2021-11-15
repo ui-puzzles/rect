@@ -1,0 +1,34 @@
+$pr-card-meta: 'pr-card-meta';
+
+$card-meta-padding-x: $padding-x-sm;
+$card-meta-title-font-weight: $font-weight-500;
+$card-meta-title-font-size: $font-size-base;
+$card-meta-desc-font-size: $font-size-sm;
+$card-meta-desc-line-height: $line-height-sm;
+$card-meta-desc-color: $gray-600;
+
+.#{$pr-card-meta} {
+  @include flex-default;
+
+  &-avatar {
+    margin-right: $card-meta-padding-x;
+  }
+
+  &-wrapper {
+    flex: 1;
+  }
+
+  &-title {
+    font-size: $card-meta-title-font-size;
+    font-weight: $card-meta-title-font-weight;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-desc {
+    line-height: $card-meta-desc-line-height;
+    font-size: $card-meta-desc-font-size;
+    color: $card-meta-desc-color;
+  }
+}

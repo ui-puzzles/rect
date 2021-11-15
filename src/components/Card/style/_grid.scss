@@ -1,0 +1,9 @@
+$pr-card-grid: 'pr-card-grid';
+
+.#{$pr-card-grid} {
+  @include flex-default;
+
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 100%;
+}

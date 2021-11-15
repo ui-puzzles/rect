@@ -9,6 +9,11 @@
   align-items: $items;
 }
 
+@mixin flex-default($display: flex, $direction: row) {
+  display: $display;
+  flex-direction: $direction;
+}
+
 @mixin zoom-animation(
   $direction: 'top',
   $scaleStart: scaleY(0),

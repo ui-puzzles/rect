@@ -1,7 +1,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Card from './card';
+import Card from './index';
 import Divider from '../Divider';
+import Avatar from '../Avatar';
 import ReadMe from './README.en-US.md';
 
 <Meta title="Components/Data Display/Card" component={Card} />
@@ -53,6 +54,82 @@ The descriptions of your component.
     >A home is only made by people within it</Card>
   </Story>
 </Canvas>
+
+### Card.Meta
+
+<Canvas>
+  <Story name="Card.Meta">
+    <Divider dashed textStyle={{ color: '#999' }}>Card.Meta</Divider>
+    <Card
+      width={200}
+      cover={<img alt="card cover" src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Bookshelf.png" />}
+    >
+      <Card.Meta
+        avatar={<Avatar size={24}>Sunny</Avatar>}
+        title="all from love"
+        description="You can't live for other people. You have to be true to youself."
+      />
+    </Card>
+     <Card
+      width={200}
+      style={{ marginLeft: 24 }}
+      cover={<img alt="card cover" src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Bookshelf.png" />}
+    >
+      <Card.Meta
+        title="all from love"
+        description="You can't live for other people. You have to be true to youself."
+      >
+        <p>this is Meta's children. You can extend more</p>
+      </Card.Meta>
+    </Card>
+  </Story>
+</Canvas>
+
+### Card.Grid
+
+<Canvas>
+  <Story name="Card.Grid">
+    <Divider dashed textStyle={{ color: '#999' }}>Card.Grid</Divider>
+    <Card>
+      <Card.Grid gutter={-1}>
+        <Card
+          title="Card Grid One"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+        <Card
+          title="Card Grid Two"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+        <Card
+          title="Card Grid Three"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+      </Card.Grid>
+    </Card>
+     <Divider dashed textStyle={{ color: '#999' }}>gutter</Divider>
+    <Card>
+      <Card.Grid gutter={[16, 24]}>
+        <Card
+          title="Card Grid One"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+        <Card
+          title="Card Grid Two"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+        <Card
+          title="Card Grid Three"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+        <Card
+          title="Card Grid Four"
+          extra={<a href="#">more</a>}
+        >A home is only made by people within it</Card>
+      </Card.Grid>
+    </Card>
+  </Story>
+</Canvas>
+
 
 <ReadMe />
 
