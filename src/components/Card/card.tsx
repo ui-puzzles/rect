@@ -6,6 +6,8 @@ import { cleanObj } from '../../utils';
 
 const prefixCls = 'pr-card';
 
+export const CARD_DISPLAY_NAME = 'Card';
+
 const Card: FC<CardProps> = (props) => {
   const {
     className,
@@ -40,7 +42,7 @@ const Card: FC<CardProps> = (props) => {
 
   const combineStyle = cleanObj({
     border: bordered ? undefined :  'none' ,
-    'min-height': minHeight,
+    minHeight,
     width,
     ...style,
   });
@@ -76,5 +78,7 @@ const Card: FC<CardProps> = (props) => {
     </div>
   );
 };
+
+Card.displayName = CARD_DISPLAY_NAME;
 
 export default Card;

@@ -22,6 +22,8 @@ export interface CardProps {
 export interface CardGridProps {
   className?: string;
   style?: CSSProperties;
+  gutter?: number | [number, number];
+  cards?: CardProps[];
 }
 
 export interface CardMetaProps {
