@@ -11,11 +11,12 @@ export interface CardProps {
   bodyStyle?: CSSProperties;
   hoverEffect?: boolean;
   bordered?: boolean;
-  loading?: boolean;
+  loading?: boolean; // reserved filed for future expansion
   cover?: ReactNode;
   coverMode?: 'normal' | 'fill';
   isCoverBlur?: boolean;
   footer?: ReactNode;
+  onClick?: (e: MouseEvent) => void;
 }
 
 

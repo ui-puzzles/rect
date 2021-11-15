@@ -9,12 +9,27 @@ import ReadMe from './README.en-US.md';
 
 ## Card
 
-The descriptions of your component.
-
+The card usually used as a simple rectangle container and also use to display some concise or relevant infomations quickly.
 
 ## Examples
 
+There are some examples as below which can help you get started quickly.
+
 ### default / title / extra
+
+The basic usage is so easy that you just pass through "title" or "extra" porperty.
+
+**1. default**
+
+By default, it is a simple rectangle container with some basic style.
+
+**2. title**
+
+Specify the property of title, so Card will have a header.
+
+**3. extra**
+
+Adding any actions what user want by specify the extra, the corresponding content will render in the right-top conner of the card.
 
 <Canvas>
   <Story name="basic">
@@ -30,7 +45,33 @@ The descriptions of your component.
   </Story>
 </Canvas>
 
-### cover / coverMode / size
+### cover / coverMode / isCoverBlur / width / hoverEffect / bordered
+
+This section is about advanced usage. You can create an effective Card component with other props. 
+
+**1. cover**
+
+Specify the cover property to add a beautiful picture for Card.
+
+**2. coverMode**
+
+The options of "normal" and 'fill' are available.
+
+**3. isCoverBlur**
+
+By default, it's value is false.
+
+**4. width**
+
+Specify the size of Card.
+
+**5. hoverEffect**
+
+By default, it's value is ture. added a box shadow style.
+
+**6. bordered**
+
+By default, it's value is ture. added a border style.
 
 <Canvas>
   <Story name="cover and size">
@@ -39,23 +80,28 @@ The descriptions of your component.
       width={200}
       cover={<img alt="card cover" src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Bookshelf.png" />}
     >A home is only made by people within it</Card>
-    <Divider dashed textStyle={{ color: '#999' }}>coverMode = "fill"</Divider>
+    <Divider dashed textStyle={{ color: '#999' }}>coverMode = "fill" & isCoverBlur</Divider>
     <Card
       width={200}
       title="Fill"
       coverMode="fill"
+      isCoverBlur
       minHeight={200}
       cover={<img alt="card cover" src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/Bookshelf.png" />}
     >A home is only made by people within it</Card>
-    <Divider dashed textStyle={{ color: '#999' }}>extra</Divider>
+    <Divider dashed textStyle={{ color: '#999' }}>boderded & style</Divider>
     <Card
       title="Featured Articles"
+      bordered={false}
+      style={{ background: '#f9f9f9' }}
       extra={<a href="#">more</a>}
     >A home is only made by people within it</Card>
   </Story>
 </Canvas>
 
 ### Card.Meta
+
+You can use Card.Meta to display basic infomations quickly. It also to support flexable content by children.
 
 <Canvas>
   <Story name="Card.Meta">
@@ -87,6 +133,8 @@ The descriptions of your component.
 
 ### Card.Grid
 
+It is very useful to display many cards in a container.
+
 <Canvas>
   <Story name="Card.Grid">
     <Divider dashed textStyle={{ color: '#999' }}>Card.Grid</Divider>
@@ -95,18 +143,21 @@ The descriptions of your component.
         <Card
           title="Card Grid One"
           extra={<a href="#">more</a>}
+          headerStyle={{ border: 'none' }}
         >A home is only made by people within it</Card>
         <Card
           title="Card Grid Two"
           extra={<a href="#">more</a>}
+          headerStyle={{ border: 'none' }}
         >A home is only made by people within it</Card>
         <Card
           title="Card Grid Three"
           extra={<a href="#">more</a>}
+          headerStyle={{ border: 'none' }}
         >A home is only made by people within it</Card>
       </Card.Grid>
     </Card>
-     <Divider dashed textStyle={{ color: '#999' }}>gutter</Divider>
+    <Divider dashed textStyle={{ color: '#999' }}>gutter</Divider>
     <Card>
       <Card.Grid gutter={[16, 24]}>
         <Card
@@ -129,7 +180,6 @@ The descriptions of your component.
     </Card>
   </Story>
 </Canvas>
-
 
 <ReadMe />
 
