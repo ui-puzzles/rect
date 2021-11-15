@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEvent } from 'react';
 import classnames from 'classnames';
 
 import { CardProps } from './interface';
-import { cleanObj } from '../../utils';
+import { cleanObj, isFunc } from '../../utils';
 
 const prefixCls = 'pr-card';
 
@@ -25,6 +25,7 @@ const Card: FC<CardProps> = (props) => {
     coverMode = 'normal',
     isCoverBlur = false,
     footer,
+    onClick,
     children
   } = props;
 
@@ -47,6 +48,12 @@ const Card: FC<CardProps> = (props) => {
     ...style,
   });
 
+  const handleClick = (e: MouseEvent) => {
+    if(onClick && isFunc(onClick)) {
+      onClick(e)
+    }
+  };
+
   const renderHeader = () => {
     if (!title && !extra) return null;
 
@@ -60,7 +67,7 @@ const Card: FC<CardProps> = (props) => {
   };
 
   return (
-    <div className={classNames} style={combineStyle}>
+    <div className={classNames} style={combineStyle} onClick={handleClick}>
       {renderHeader()}
       {cover && (
         <div className={coverClassNames}>
