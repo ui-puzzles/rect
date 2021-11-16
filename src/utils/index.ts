@@ -49,7 +49,7 @@ const  autoFixFontSize = (
   }
 };
 
-export const cleanObj= <T>(val: T): Pick<T, keyof T> | undefined => {
+export const wipeUndefValueOfObj= <T>(val: T): Pick<T, keyof T> | undefined => {
   try {
     if (!isObj(val)) throw new TypeError(`${val} must be an plain object.`);
 
