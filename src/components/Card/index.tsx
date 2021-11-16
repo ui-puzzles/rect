@@ -11,6 +11,12 @@ export type ICardComponent = FC<CardProps> & {
   Grid: FC<CardGridProps>;
 };
 
+export type {
+  CardProps,
+  CardGridProps,
+  CardMetaProps
+}
+
 const ComponentCard = Card as ICardComponent;
 
 ComponentCard.Meta = Meta;
