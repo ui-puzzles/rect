@@ -2,7 +2,7 @@ import React, { FC, MouseEvent } from 'react';
 import classnames from 'classnames';
 
 import { CardProps } from './interface';
-import { cleanObj, isFunc } from '../../utils';
+import { wipeUndefValueOfObj, isFunc } from '../../utils';
 
 const prefixCls = 'pr-card';
 
@@ -41,7 +41,7 @@ const Card: FC<CardProps> = (props) => {
     [`${prefixCls}-cover-blur`]: coverMode === 'fill' && isCoverBlur,
   });
 
-  const combineStyle = cleanObj({
+  const combineStyle = wipeUndefValueOfObj({
     border: bordered ? undefined :  'none' ,
     minHeight,
     width,

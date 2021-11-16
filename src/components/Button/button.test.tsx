@@ -1,3 +1,4 @@
+import React from 'react';
 import { render } from '@testing-library/react';
 
 import Button from './button';
@@ -14,7 +15,7 @@ describe('test Button component', () => {
 
     // NOTE: the tagName is uppercase
     expect(labeEle.tagName).toEqual('SPAN');
-    expect(btnEle).toHaveClass('puzzle-btn');
+    expect(btnEle).toHaveClass('pr-btn');
   });
 
   it('should render the correct component based on different props', () => {
