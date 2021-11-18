@@ -1,19 +1,36 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Template from './template';
+import Carousel from './index';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/secondaryClassification/Template" component={Template} />
+<Meta title="Components/Data Display/Carousel" component={Carousel} />
 
-## Template
+## Carousel
 
 The descriptions of your component.
 
 ## Examples
 
 <Canvas>
-  <Story name="your name">
-    
+  <Story name="Default">
+    <Carousel
+      style={{ width: 600, height: 240 }}
+      controller={<Carousel.Controller />}
+      indicator={<Carousel.Indicator />}
+    >
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-1.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-2.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-4.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-2.jpg" /> 
+      </Carousel.Item>
+    </Carousel>
   </Story>
 </Canvas>
 

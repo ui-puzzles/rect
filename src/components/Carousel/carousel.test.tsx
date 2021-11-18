@@ -1,6 +1,6 @@
-// import { render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
-describe('test your component', () => {
+describe('Carousel', () => {
   it('~~~~', () => {
     
   });
