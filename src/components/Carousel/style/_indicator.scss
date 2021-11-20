@@ -1,5 +1,9 @@
 $pr-carousel-dot: 'pr-carousel-dot';
 
+$pr-carousel-dot-white: $white;
+$pr-carousel-dot-padding-y: $padding-y;
+$pr-carousel-dot-padding-x: $padding-x;
+
 .#{$pr-carousel-dot} {
   position: absolute;
   z-index: 2;
@@ -9,7 +13,7 @@ $pr-carousel-dot: 'pr-carousel-dot';
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: $pr-carousel-dot-white;
     opacity: 0.25;
     transition: all 0.3s;
     overflow: hidden;
@@ -29,7 +33,7 @@ $pr-carousel-dot: 'pr-carousel-dot';
 
   left: 50%;
   transform: translateX(-50%);
-  padding: 8px 12px;
+  padding: $pr-carousel-dot-padding-y $pr-carousel-dot-padding-x;
 
   .#{$pr-carousel-dot}-item {
     margin-right: 10px;
@@ -50,7 +54,7 @@ $pr-carousel-dot: 'pr-carousel-dot';
 
   top: 50%;
   transform: translateY(-50%);
-  padding: 12px 8px;
+  padding: $pr-carousel-dot-padding-x $pr-carousel-dot-padding-y;
 
   .#{$pr-carousel-dot}-item {
     margin-bottom: 10px;

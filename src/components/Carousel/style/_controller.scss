@@ -1,5 +1,9 @@
 $pr-carousel-ctrl: 'pr-carousel-ctrl';
 
+$pr-carousel-ctrl-size: $block-size-8;
+$pr-carousel-ctrl-white: $white;
+$pr-carousel-ctrl-margin: $margin-x-lg;
+
 .#{$pr-carousel-ctrl} {
   @include flex(flex, row, space-between);
 
@@ -7,17 +11,17 @@ $pr-carousel-ctrl: 'pr-carousel-ctrl';
   top: 0;
   width: 100%;
   height: 100%;
-  color: #fff;
+  color: $pr-carousel-ctrl-white;
   z-index: 2;
 
   &-left,
   &-right {
     @include flex;
 
-    width: 32px;
-    height: 32px;
+    width: $pr-carousel-ctrl-size;
+    height: $pr-carousel-ctrl-size;
     border-radius: 50%;
-    background-color: rgba($color: #fff, $alpha: 0.4);
+    background-color: rgba($color: $pr-carousel-ctrl-white, $alpha: 0.4);
     opacity: 0.7;
     transition: opacity 0.3s;
     cursor: pointer;
