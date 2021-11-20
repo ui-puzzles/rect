@@ -61,7 +61,7 @@
     "prepublishOnly": "npm run test:stage && npm run lint && npm run build",
     "release:major": "npm version major && npm publish --access public",
     "release:minor": "npm version minor && npm publish --access public",
-    "release:pre": "npm version prerelease &&npm publish --access public",
+    "release:pre": "npm version prerelease && npm publish --access public",
     "release": "npm publish --access public",
     "ui-cli": "./scripts/create-template-component.js"
   },
