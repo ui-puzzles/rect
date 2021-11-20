@@ -10,11 +10,15 @@
 </div>
 
 <div align="center">
+
 A set of high-quality React components out of the box.
+
 </div>
 
 <div align="center">
+
 English | [简体中文](./README-zh_CN.md)
+
 </div>
 
 # Features

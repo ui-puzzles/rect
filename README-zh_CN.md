@@ -9,11 +9,15 @@
 </div>
 
 <div align="center">
+
 一套高质量的、开箱即用的 React UI 组件库。
+
 </div>
 
 <div align="center">
+
 [English](./README.md) | 简体中文
+
 </div>
 
 # 特性
