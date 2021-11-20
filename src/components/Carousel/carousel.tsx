@@ -16,25 +16,43 @@ const Carousel: FC<CarouselProps> = (props) => {
     indicator,
     interval = 3000,
     direction = 'horizontal',
-    effect = 'slide',
+    effect = 'fade',
     onChange,
     children,
   } = props;
   const [curIndex, setCurIndex] = useState(0);
   const [slidesLength, setSlidesLength] = useState(0);
   const carouselRef = useRef(null);
+  const wrapperRef = useRef<HTMLUListElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const cacheNextFunc = useRef<(() => void) | null>(null);
 
   const isValidEffect = ['slide', 'fade', 'card'].includes(effect);
   const classNames = classnames(prefixCls, className);
   const sliderClasses = classnames(`${prefixCls}-wrapper`, {
-    [`${prefixCls}-v`]: direction === 'vertical',
     [`${prefixCls}-${effect}`]: isValidEffect,
+    [`${prefixCls}-v`]: direction === 'vertical',
   });
+
+  const handleEffectAnimation = (idx: number) => {
+    const wrapperElem = wrapperRef.current;
+    if (wrapperElem) {
+      const wrapperWidth = wrapperElem.clientWidth || 0;
+      const wrapperHeight = wrapperElem.clientHeight || 0;
+      if (direction === 'horizontal') {
+        wrapperElem.style.transform = `translateX(-${wrapperWidth * idx}px)`;
+      } else if (direction === 'vertical') {
+        wrapperElem.style.transform = `translateY(-${wrapperHeight * idx}px)`;
+      }
+    }
+  };
 
   const handleSlideTo = (idx: number) => {
     setCurIndex(idx);
+
+    if (effect === 'slide') {
+      handleEffectAnimation(idx);
+    }
 
     if (onChange && isFunc(onChange)) {
       onChange(idx)
@@ -69,6 +87,18 @@ const Carousel: FC<CarouselProps> = (props) => {
     }, interval);
   };
 
+  const handleMouseEnter = () => {
+    if (autoplay) {
+      handleStart();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (autoplay) {
+      handleStop();
+    }
+  };
+
   useEffect(() => {
     cacheNextFunc.current = handleNext;
 
@@ -90,7 +120,7 @@ const Carousel: FC<CarouselProps> = (props) => {
     }
   
     return () => {
-      stop();
+      handleStop();
     }
   }, [])
 
@@ -140,10 +170,10 @@ const Carousel: FC<CarouselProps> = (props) => {
     <div className={classNames}
       style={style}
       ref={carouselRef}
-      onMouseEnter={handleStop}
-      onMouseLeave={handleStart}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <ul className={sliderClasses}>
+      <ul className={sliderClasses} ref={wrapperRef}>
         {renderChildren()}
       </ul>
       {renderController()}

@@ -4,7 +4,6 @@ export interface CarouselProps {
   className?: string;
   style?: CSSProperties;
   autoplay?: boolean;
-  loop?: boolean;
   controller?: ReactNode;
   indicator?: ReactNode;
   interval?: number;

@@ -5,8 +5,14 @@ import Carousel from './carousel';
 import CarouselItem from './carousel-item';
 import Controller from './controller';
 import Indicator from './indicator';
-
 import {
+  CarouselProps,
+  CarouselItemProps,
+  CarouselControllerProps,
+  CarouselIndicatorProps,
+} from './interface';
+
+export type {
   CarouselProps,
   CarouselItemProps,
   CarouselControllerProps,
