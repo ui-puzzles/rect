@@ -1,0 +1,97 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Carousel from './index';
+import ReadMe from './README.en-US.md';
+
+<Meta title="Components/Data Display/Carousel" component={Carousel} />
+
+## Carousel
+
+Carousel component is often used to display some important informations and consists of multiple content such as pictures or videos.
+
+## Examples
+
+There are some examples as follows which can help you get started quickly.
+
+
+### Basic Usage
+
+By default, Carousel component has only the core features to slide. The Controller and Indicator exist as plugins,
+you have to pass through explicitly then they'll be rendered.
+
+For normalization, the child element must to be wrapper in Carousel.Item. Otherwise, it'll be ignored.
+
+<Canvas>
+  <Story name="Default">
+    <Carousel
+      style={{ width: 600, height: 240 }}
+      controller={<Carousel.Controller />}
+      indicator={<Carousel.Indicator />}
+    >
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-1.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-2.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-4.jpg" /> 
+      </Carousel.Item>
+    </Carousel>
+  </Story>
+</Canvas>
+
+### effect / autoplay
+
+1. There three effects are avaiables: 'fade(as default)', 'slide' and 'card'. however, **card of effect not supported now.** Please look forward it!
+
+2. You can specify the property of autoplay equal false to cancel automatical play.
+
+<Canvas>
+  <Story name="effect and autoplay">
+    <Carousel
+      style={{ width: 600, height: 240 }}
+      controller={<Carousel.Controller />}
+      autoplay={false}
+      direction="vertical"
+      effect="slide"
+    >
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-1.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-2.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-4.jpg" /> 
+      </Carousel.Item>
+    </Carousel>
+  </Story>
+</Canvas>
+
+### indicator
+
+User can pass through the indicator to the Carousel whick can be seen as a plugin.
+
+<Canvas>
+  <Story name="indicator">
+    <Carousel
+      style={{ width: 600, height: 240 }}
+      indicator={<Carousel.Indicator position="right" />}
+      direction="vertical"
+    >
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-1.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-2.jpg" /> 
+      </Carousel.Item>
+      <Carousel.Item>
+        <img alt="item one" src="https://cdn.fujia.site/banner-4.jpg" /> 
+      </Carousel.Item>
+    </Carousel>
+  </Story>
+</Canvas>
+
+<ReadMe />
+

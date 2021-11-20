@@ -1,0 +1,38 @@
+$pr-carousel-ctrl: 'pr-carousel-ctrl';
+
+.#{$pr-carousel-ctrl} {
+  @include flex(flex, row, space-between);
+
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  z-index: 2;
+
+  &-left,
+  &-right {
+    @include flex;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba($color: #fff, $alpha: 0.4);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-left {
+    margin-left: 16px;
+  }
+
+  &-right {
+    margin-right: 16px;
+  }
+}
