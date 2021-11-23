@@ -1,4 +1,4 @@
-import React, { FC, isValidElement, useState, useEffect, useRef } from 'react';
+import React, { FC, isValidElement, useState, useEffect, useCallback, useRef } from 'react';
 import classnames from 'classnames';
 
 import { CarouselProps, CarouselItemProps, InternalCarouselItemProps } from './interface';
@@ -24,7 +24,7 @@ const Carousel: FC<CarouselProps> = (props) => {
   const [slidesLength, setSlidesLength] = useState(0);
   const carouselRef = useRef(null);
   const wrapperRef = useRef<HTMLUListElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
   const cacheNextFunc = useRef<(() => void) | null>(null);
 
   const isValidEffect = ['slide', 'fade', 'card'].includes(effect);
@@ -74,30 +74,31 @@ const Carousel: FC<CarouselProps> = (props) => {
     handleSlideTo(prevIdx);
   };
 
-  const handleStop = () => {
+  const handleStop = useCallback(() => {
     if (intervalRef.current) {
-      clearInterval(intervalRef.current);
+      window.clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
-  };
+  }, []);
 
-  const handleStart = () => {
+  const handleStart = useCallback(() => {
     handleStop();
-    intervalRef.current = setInterval(() => {
+    intervalRef.current = window.setInterval(() => {
       cacheNextFunc.current && cacheNextFunc.current();
     }, interval);
-  };
+  }, []);
 
-  const handleMouseEnter = () => {
-    if (autoplay) {
-      handleStart();
-    }
-  };
-
-  const handleMouseLeave = () => {
+  const handleMouseEnter = useCallback(() => {
     if (autoplay) {
       handleStop();
     }
-  };
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (autoplay) {
+      handleStart();
+    }
+  }, []);
 
   useEffect(() => {
     cacheNextFunc.current = handleNext;

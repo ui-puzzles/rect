@@ -6,7 +6,7 @@
 </div>
 
 <div align="center">
-  <h1>ui-puzzle/rect</h1>
+  <h1>ui-puzzles/rect</h1>
 </div>
 
 <div align="center">
