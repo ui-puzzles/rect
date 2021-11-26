@@ -1,0 +1,33 @@
+$pr-empty: 'pr-empty';
+
+$empty-color: $gray-500 !default;
+$empty-font-size: $font-size-sm !default;
+$empty-desc-margin-top: $margin-y-lg !default;
+$empty-img-size: $block-size-18 !default;
+
+.#{$pr-empty} {
+  @include flex(flex, column);
+
+  color: $empty-color;
+
+  &-img {
+    width: $empty-img-size;
+    height: $empty-img-size;
+
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+
+    > svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  &-desc {
+    margin-top: $empty-desc-margin-top;
+    font-size: $empty-font-size;
+  }
+}

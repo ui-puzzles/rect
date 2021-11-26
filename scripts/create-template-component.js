@@ -7,11 +7,12 @@ const { mkdir, readdir, copyFile, rename } = require('fs/promises');
 const { versions } = require('process')
 const path = require('path');
 const chalk = require('chalk');
+const replaceInFile = require('replace-in-file');
 
 const program = new Command();
 const componentsDir = path.resolve(__dirname, '../src/components');
 const templateDir = path.resolve(__dirname, './templates');
-const templateRe = /^(template\.).*[mdx|tsx|]$/i;
+const templateRe = /^(__template__\.).*[mdx|tsx|]$/i;
 
 program
   .command('create <componentName>')
@@ -25,7 +26,7 @@ program.parse(process.argv);
 async function createTempComponent(cName) {
   const formatName = convertFirstLetterUpper(cName);
   const newCompPath = path.join(componentsDir, formatName);
-
+ 
   // check the version of running node.js.
   if (!isAvailableVersion('10.10.0')) return;
   
@@ -40,11 +41,25 @@ async function createTempComponent(cName) {
     // await cp(templateDir, newCompPath);
     const readTempDir = await readdir(templateDir);
     for await (const fileName of readTempDir) {
+      const newFileName = fileName.replace(/(__template__)/i, `${cName}`);
+      const newFilePath = `${newCompPath}/${newFileName}`;
+
       await copyFile(`${templateDir}/${fileName}`, `${newCompPath}/${fileName}`);
+      // rename name of file
       if (templateRe.test(fileName)) {
-        const newFileName = fileName.replace(/(template)/i, `${cName}`)
-        await rename(`${newCompPath}/${fileName}`, `${newCompPath}/${newFileName}`);
+        await rename(`${newCompPath}/${fileName}`, newFilePath);
       }
+      // replace __Template__ with corresponding name
+      await replaceInFile({
+        files: newFilePath,
+        from: /__template__/g,
+        to: cName
+      });
+      await replaceInFile({
+        files: newFilePath,
+        from: /__Template__/g,
+        to: formatName
+      });
     }
     successLog(`Added the ${formatName} component to the libs!`);
   } catch (error) {

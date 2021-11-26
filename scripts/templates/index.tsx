@@ -1,6 +1,6 @@
 
-import Template from './template';
+import __Template__ from './__template__';
 
-export type { TemplateProps } from './interface';
+export type { __Template__Props } from './interface';
 
-export default Template;
+export default __Template__;
