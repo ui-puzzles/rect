@@ -5,7 +5,7 @@ const childProcess = require('child_process');
 const { exec, echo } = require('shelljs');
 // const { Command } = require('commander');
 
-const pkg = require('../package.json');
+// const pkg = require('../package.json');
 const {
   warning,
 } = require('./helper');
@@ -23,12 +23,22 @@ publishMinor();
 
 function publishMinor() {
   echo('🏈Starting publish a version of minor...');
-  exec('npm version minor --no-commit-hooks');
-  exec('git add .');
-  exec('git commit -m \'feat: upgrade version\'');
-  exec('git push')
+  exec('npm version minor');
+  exec('git push');
   exec('npm publish --access public');
-  echo(`🎗publish success of version: ${pkg.version}!!!`);
+  echo(`🎗publish success of version: ${require('../package.json').version}!!!`);
+
+  buildDocs();
+}
+
+function buildDocs() {
+  console.log();
+  echo('🐶Starting build docs...');
+  exec('npm run build-storybook');
+  exec('git add .');
+  exec('git commit -m \'feat: upgrade docs\'');
+  exec('git push');
+  echo('✅upgrade success');
 }
 
 
