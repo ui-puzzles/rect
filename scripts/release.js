@@ -10,7 +10,7 @@ const {
   warning,
 } = require('./helper');
 
-const curBranch = childProcess.execSync('git rev-parse --abbrev-ref HEAD');
+const curBranch = childProcess.execSync('git rev-parse --abbrev-ref HEAD').toString().replace(/\s+/, '');
 const isBranchMain = curBranch === 'main' || curBranch === 'master';
 
 if (!isBranchMain) {
