@@ -24,10 +24,7 @@ publishMinor();
 function publishMinor() {
   echo('🏈Starting publish a version of minor...');
   exec('npm version minor');
-  exec('git add .');
-  exec('git commit -m \'feat: update version\'');
-  exec('git push');
-  exec('git publish --access publish');
+  exec('git publish --access public');
   echo(`🎗publish success of version: ${pkg.version}!!!`);
 }
 
