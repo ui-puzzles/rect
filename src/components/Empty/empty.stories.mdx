@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Empty from './empty';
+import Divider from '../Divider';
+import ReadMe from './README.en-US.md';
+
+<Meta title="Components/Data Display/Empty" component={Empty} />
+
+## Empty
+
+Display fridendly tips quickly when a page or container have no data provided. 
+
+## Examples
+
+There are some examples as follows which can help you get started quickly.
+
+### Default
+
+As follows, the basic usage is so easy.
+
+<Canvas>
+  <Story name="Default">
+    <Divider dashed textStyle={{ color: '#999' }}>default</Divider>
+    <Empty />
+  </Story>
+</Canvas>
+
+### Description / image
+
+Customizing your Empty component by passing through the properties of description or image.
+
+<Canvas>
+  <Story name="description/image">
+    <Divider dashed textStyle={{ color: '#999' }}>description</Divider>
+    <Empty description="hey! where our breads?" />
+    <Divider dashed textStyle={{ color: '#999' }}>image</Divider>
+    <Empty image={<img src="https://camo.githubusercontent.com/955b51a3186030a6231bf07db50b5a0ff7e65c6471c1be56482206cbaa8f6ef2/68747470733a2f2f7374617469632d696d616765732d313330353739323336392e636f732e61702d7368616e676861692e6d7971636c6f75642e636f6d2f70757a7a6c652d6c6f676f2e737667" />} />
+  </Story>
+</Canvas>
+
+<ReadMe />
+

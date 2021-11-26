@@ -63,7 +63,7 @@
     "release:minor": "npm version minor && npm publish --access public",
     "release:pre": "npm version prerelease && npm publish --access public",
     "release": "npm publish --access public",
-    "ui-cli": "./scripts/create-template-component.js"
+    "ui-cli": "node ./scripts/create-template-component.js"
   },
   "commitlint": {
     "extends": [
@@ -138,6 +138,7 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "replace-in-file": "^6.3.2",
     "rimraf": "^2.7.1",
     "sass": "^1.37.0",
     "stylelint": "^13.13.1",
