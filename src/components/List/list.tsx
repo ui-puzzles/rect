@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import { ListProps } from './interface';
 
-const prefixCls = 'pr-alert';
+const prefixCls = 'pr-list';
 
 const List: FC<ListProps<any>> = (props) => {
   const {
@@ -15,11 +15,9 @@ const List: FC<ListProps<any>> = (props) => {
     hoverEffect,
     size,
     dataSource,
-    render,
-    header,
+    renderItem,
     empty,
     listBottom,
-    footer,
     endReachedThreshold,
     onListScroll,
     onLoadMore,
@@ -31,13 +29,9 @@ const List: FC<ListProps<any>> = (props) => {
     <div className={classNames} style={style}>
       {(dataSource && dataSource.length)
         ? (
-          <>
-            {header}
-            <ul>
-              <p></p>
-            </ul>
-            {footer}
-          </>
+          <ul>
+            <p></p>
+          </ul>
         ) : empty
       }
     </div>

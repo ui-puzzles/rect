@@ -9,8 +9,7 @@ export interface ListProps<T> {
   hoverEffect?: boolean;
   size?: 'small' | 'middle' | 'large';
   dataSource?: T[];
-  render?: (item: T, index: number) => ReactNode;
-  header?: ReactNode;
+  renderItem?: (item: T, index: number) => ReactNode;
   empty?: ReactNode;
   listBottom?: ReactNode;
   footer?: ReactNode;
