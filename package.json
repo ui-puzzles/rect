@@ -47,7 +47,7 @@
     "build": "npm run clean && npm run build:ts && npm run build:scss",
     "build:ts": "tsc -p tsconfig.prod.json",
     "build:scss": "sass ./src/styles/index.scss ./dist/index.css",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "test:stage": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s publish",
@@ -59,11 +59,8 @@
     "lint": "npm run lint:script && npm run lint:style",
     "prepare": "husky install",
     "prepublishOnly": "npm run test:stage && npm run lint && npm run build",
-    "release:major": "npm version major && npm publish --access public",
-    "release:minor": "npm version minor && npm publish --access public",
-    "release:pre": "npm version prerelease && npm publish --access public",
-    "release": "npm publish --access public",
-    "ui-cli": "node ./scripts/create-template-component.js"
+    "release": "node scripts/release.js",
+    "ui-cli": "node scripts/create-template-component.js"
   },
   "commitlint": {
     "extends": [
@@ -141,6 +138,7 @@
     "replace-in-file": "^6.3.2",
     "rimraf": "^2.7.1",
     "sass": "^1.37.0",
+    "shelljs": "^0.8.4",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "typescript": "^4.1.2",
