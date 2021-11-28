@@ -29,5 +29,5 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": 0,
         "react/prop-types": 0,
     },
-    "ignorePatterns": ["docs"]
+    "ignorePatterns": ["docs", "scripts", "config"]
 };
