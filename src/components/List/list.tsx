@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 
 import { ListProps } from './interface';
+import { Empty } from '../../index';
 
 const prefixCls = 'pr-list';
 
@@ -9,14 +10,14 @@ const List: FC<ListProps<any>> = (props) => {
   const {
     className,
     style,
-    bordered,
+    bordered = true,
     split,
     loading,
     hoverEffect,
     size,
     dataSource,
     renderItem,
-    empty,
+    empty = Empty,
     listBottom,
     endReachedThreshold,
     onListScroll,
@@ -25,12 +26,16 @@ const List: FC<ListProps<any>> = (props) => {
 
   const classNames = classnames(prefixCls, className);
 
+  const renderList = () => {
+
+  };
+
   return (
     <div className={classNames} style={style}>
       {(dataSource && dataSource.length)
         ? (
-          <ul>
-            <p></p>
+          <ul className={`${prefixCls}-wrapper`}>
+            {renderList}
           </ul>
         ) : empty
       }
