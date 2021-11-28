@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import Button from './button';
 
-describe('test Button component', () => {
+describe('Button', () => {
   it('should render the correct default button', () => {
     const wrapper = render(<Button>Default Button</Button>);
 

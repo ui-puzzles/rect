@@ -15,6 +15,10 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    },
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -23,6 +27,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "examples"
   ]
 }
