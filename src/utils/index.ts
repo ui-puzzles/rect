@@ -65,6 +65,6 @@ export const wipeUndefValueOfObj= <T>(val: T): Pick<T, keyof T> | undefined => {
     return ret;
   } catch (error) {
     logError(`${error}`);
-    return;
+
   }
 };

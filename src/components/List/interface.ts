@@ -9,19 +9,22 @@ export interface ListProps<T> {
   hoverEffect?: boolean;
   size?: 'small' | 'middle' | 'large';
   dataSource?: T[];
-  renderItem?: (item: T, index: number) => ReactNode;
-  empty?: ReactNode;
+  renderItem: (item: T, index: number) => ReactNode;
+  title?: ReactNode;
+  extra?: ReactNode;
   listBottom?: ReactNode;
   footer?: ReactNode;
+  empty?: ReactNode;
   endReachedThreshold?: number;
   onListScroll?: (elem: Element) => void;
   onLoadMore?: (page: number) => void;
 }
 
-export interface ListItemProps {
+export interface ListItemProps<T = any> {
   className?: string;
   style?: CSSProperties;
   extra?: ReactNode;
+  data: Record<keyof T, unknown>;
 }
 
 export interface ListItemMetaProps {

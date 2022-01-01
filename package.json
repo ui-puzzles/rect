@@ -156,6 +156,7 @@
     "@babel/plugin-transform-react-jsx": "^7.16.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@fujia/hammer": "^0.2.1",
     "@fujia/hooks": "^0.1.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-docs": "^6.3.12",
