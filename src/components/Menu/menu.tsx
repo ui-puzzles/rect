@@ -1,4 +1,10 @@
-import React, { CSSProperties, createContext, useState, FunctionComponentElement, cloneElement } from 'react';
+import React, {
+  CSSProperties,
+  createContext,
+  useState,
+  FunctionComponentElement,
+  cloneElement,
+} from 'react';
 import classnames from 'classnames';
 
 import { MenuItemProps, MENU_ITEM_DISPLAY_NAME } from './menuItem';
@@ -37,18 +43,22 @@ const Menu: React.FC<MenuProps> = (props) => {
     children,
     className,
     style,
-    onSelect
+    onSelect,
   } = props;
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
-  const classes = classnames(`${prefixCls}`, {
-    [`${prefixCls}-v`]: mode === 'vertical',
-    [`${prefixCls}-disabled`]: disabled,
-  }, className);
+  const classes = classnames(
+    `${prefixCls}`,
+    {
+      [`${prefixCls}-v`]: mode === 'vertical',
+      [`${prefixCls}-disabled`]: disabled,
+    },
+    className
+  );
 
   function handleClick(index: string) {
     setActiveIndex(index);
     if (typeof onSelect === 'function') {
-      onSelect(index)
+      onSelect(index);
     }
   }
 
@@ -59,33 +69,32 @@ const Menu: React.FC<MenuProps> = (props) => {
     defaultOpenSubMenus,
   };
 
-  const renderChildren = () => React.Children.map(children, (child, index) => {
-    const childElement = child as FunctionComponentElement<MenuItemProps | SubMenuProps>;
-    const { displayName } = childElement.type;
+  const renderChildren = () =>
+    React.Children.map(children, (child, index) => {
+      const childElement = child as FunctionComponentElement<MenuItemProps | SubMenuProps>;
+      const { displayName } = childElement.type;
 
-    if (displayName === MENU_ITEM_DISPLAY_NAME || displayName === SUB_MENU_DISPLAY_NAME) {
-      return cloneElement(childElement, {
-        index: `${index}`
-      });
-    }
+      if (displayName === MENU_ITEM_DISPLAY_NAME || displayName === SUB_MENU_DISPLAY_NAME) {
+        return cloneElement(childElement, {
+          index: `${index}`,
+        });
+      }
 
-    console.warn('Warning: Menu has a child element which is not a MenuItem Component');
-  });
+      console.warn('Warning: Menu has a child element which is not a MenuItem Component');
+    });
 
   return (
     <ul className={classes} style={style} data-testid="test-menu">
-      <MenuContext.Provider value={passedContext}>
-        {renderChildren()}
-      </MenuContext.Provider>
+      <MenuContext.Provider value={passedContext}>{renderChildren()}</MenuContext.Provider>
     </ul>
   );
-}
+};
 
 Menu.defaultProps = {
   defaultIndex: '0',
   defaultOpenSubMenus: [],
   mode: 'horizontal',
   disabled: false,
-}
+};
 
 export default Menu;

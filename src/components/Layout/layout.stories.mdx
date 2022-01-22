@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Layout from './index';
+import ReadMe from './README.en-US.md';
+
+<Meta title="Components/Layout/Layout" component={Layout} />
+
+## Layout
+
+Layout component is often to build the page basic construction quickly.
+
+## Examples
+
+There are some examples as follows which can help you to get started quickly.
+
+### Simple Layout
+
+Simple up, middle and down page layouts。
+
+<Canvas>
+  <Story name="basic">
+    <Layout style={{ height: 240 }}>
+      <Layout.Header style={{ background: '#ddd' }}>Page Header</Layout.Header>
+      <Layout.Main style={{ background: '#eee' }}>Page Main</Layout.Main>
+      <Layout.Footer style={{ background: '#ddd' }}>Page Footer</Layout.Footer>
+    </Layout>
+  </Story>
+</Canvas>
+
+### Nested Layout
+
+If your pages have a sidebar, you need to wrap the Aside component in another Layout component.
+
+<Canvas>
+  <Story name="nested">
+    <Layout style={{ height: 240 }}>
+      <Layout.Header style={{ background: '#ddd' }}>Page Header</Layout.Header>
+      <Layout>
+        <Layout.Aside style={{ background: '#999' }}>Page Aside</Layout.Aside>
+        <Layout.Main style={{ background: '#eee' }}>Page Main</Layout.Main>
+      </Layout>
+      <Layout.Footer style={{ background: '#ddd' }}>Page Footer</Layout.Footer>
+    </Layout>
+  </Story>
+</Canvas>
+
+<ReadMe />

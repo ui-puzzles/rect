@@ -1,0 +1,10 @@
+$pr-layout: 'pr-layout';
+
+.#{$pr-layout} {
+  display: flex;
+  flex-direction: column;
+}
+
+.#{$pr-layout}-has-aside {
+  flex-direction: row;
+}
