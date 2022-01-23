@@ -1,15 +1,12 @@
 import React, { FC } from 'react';
 import classnames from 'classnames';
 
-import { TabsProps } from './interface';
+import { TabPaneProps } from './interface';
 
-const prefixCls = 'pr-tabs';
+const prefixCls = 'pr-tab-pane';
 
-const Tabs: FC<TabsProps> = (props) => {
-  const {
-    className,
-    style
-  } = props;
+const TabPane: FC<TabPaneProps> = (props) => {
+  const { className, style } = props;
 
   const classNames = classnames(prefixCls, className);
 
@@ -20,4 +17,4 @@ const Tabs: FC<TabsProps> = (props) => {
   );
 };
 
-export default Tabs;
+export default TabPane;

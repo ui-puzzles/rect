@@ -2,9 +2,11 @@
 
 The table to display the props of your component
 
-|Property|Description|Type|DefaultValue|
-|---|---|---|---|
-|  |  |  |  |
+|Property|Description|Type|Default|Version|
+|---|---|---|---|---|
+| className | additional css class | string | - | 1.0.0 |
+| style | additional style | CSSProperties | - | 1.0.0 |
+|  |  |  |  |  |
 
 ## Change Log
 
