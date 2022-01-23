@@ -1,6 +1,17 @@
+import { FC } from 'react';
 
-import Template from './template';
+import Tabs from './tabs';
+import TabPane from './tabPane';
+import { TabsProps, TabPaneProps } from './interface';
 
-export type { TemplateProps } from './interface';
+export type { TabsProps, TabPaneProps } from './interface';
 
-export default Template;
+type ITabsComp = FC<TabsProps> & {
+  TabPane: FC<TabPaneProps>;
+};
+
+export const CompTabs = Tabs as ITabsComp;
+
+CompTabs.TabPane = TabPane;
+
+export default CompTabs;
