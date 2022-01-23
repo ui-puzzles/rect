@@ -181,7 +181,6 @@ $body-bg: $white !default;
 $body-color: $gray-900 !default;
 $body-text-align: null !default;
 
-$headings-margin-bottom: div($spacing-base, 2) !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
@@ -192,7 +191,7 @@ $headings-color: null !default;
 $paragraph-margin-bottom: 1rem !default;
 
 // others
-$headings-margin-bottom: div($spacing-base, 2) !default;
+$headings-margin-bottom: $spacing-base / 2 !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
