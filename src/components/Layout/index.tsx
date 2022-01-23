@@ -5,10 +5,9 @@ import Header from './header';
 import Aside from './aside';
 import Main from './main';
 import Footer from './footer';
-
 import { LayoutProps, HeaderProps, AsideProps, MainProps, FooterProps } from './interface';
 
-export type ILayoutComponent = FC<LayoutProps> & {
+type ILayoutComponent = FC<LayoutProps> & {
   Header: FC<HeaderProps>;
   Aside: FC<AsideProps>;
   Main: FC<MainProps>;
