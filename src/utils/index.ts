@@ -1,15 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const getPrimitiveType = (val: any) => Object.prototype.toString.call(val).slice(8, -1);
+export const getPrimitiveType = (val: unknown) => Object.prototype.toString.call(val).slice(8, -1);
 
-export const isObj = (val: any) => getPrimitiveType(val) === 'Object';
+export const isObj = (val: unknown): val is Record<any, any> => getPrimitiveType(val) === 'Object';
 
-export const isFunc = (val: any) => typeof val === 'function';
+export const isFunc = (val: unknown): val is CallableFunction => typeof val === 'function';
 
-export const isString = (str: any) => typeof str === 'string';
+export const isString = (str: unknown): str is string => typeof str === 'string';
 
-export const isPromise = (val: any) => val instanceof Promise;
+export const isPromise = <T = any>(val: any): val is Promise<T> => {
+  return isObj(val) && isFunc(val.then) && isFunc(val.catch);
+};
 
-export const isUndef = (val: any) => val === undefined || val === null;
+type UndefType = null | undefined;
+export const isUndef = (val: unknown): val is UndefType => val === undefined || val === null;
 
 export const warning = (msg: string) => {
   if (!msg) return;
@@ -33,11 +36,12 @@ export /**
  * @param {number} [wrapperSize] specify the wrapper size
  * @param {number} [offset=8] specify gap of text
  */
-const  autoFixFontSize = (
+const autoFixFontSize = (
   textElem: HTMLElement | null,
   wrapper: HTMLElement | null,
   wrapperSize?: number,
-  offset = 8) => {
+  offset = 8
+) => {
   if (textElem) {
     const textWidth = textElem.clientWidth;
     const size = wrapperSize || wrapper?.offsetWidth || 0;
@@ -49,14 +53,14 @@ const  autoFixFontSize = (
   }
 };
 
-export const wipeUndefValueOfObj= <T>(val: T): Pick<T, keyof T> | undefined => {
+export const wipeUndefValueOfObj = <T>(val: T): Pick<T, keyof T> | undefined => {
   try {
     if (!isObj(val)) throw new TypeError(`${val} must be an plain object.`);
 
     const ret = {} as Pick<T, keyof T>;
     const valKeys = Object.keys(val) as Array<keyof T>;
 
-    valKeys.forEach(k => {
+    valKeys.forEach((k) => {
       if (!isUndef(val[k])) {
         ret[k] = val[k];
       }

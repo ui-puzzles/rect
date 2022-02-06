@@ -1,5 +1,51 @@
 $pr-tabs: 'pr-tabs';
 
+$tabs-border-width: $border-width !default;
+$tabs-active-border-width: $border-width * 2 !default;
+$tabs-border-color: $border-color !default;
+$tabs-active-border-color: $primary !default;
+
+$tabs-padding-x: 0.5rem;
+$tabs-padding-y: 1rem;
+$tabs-margin-x: 0.5rem;
+$tabs-margin-y: 1rem;
+
 .#{$pr-tabs} {
   display: flex;
+  flex-direction: column;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    border-bottom: $tabs-border-width solid $tabs-border-color;
+  }
+
+  &-nav {
+    display: flex;
+  }
+
+  &-item {
+    margin: 0 $tabs-margin-y;
+    padding: $tabs-padding-x 0;
+    cursor: pointer;
+
+    &-active {
+      position: relative;
+      color: $tabs-active-border-color;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        height: $tabs-active-border-width;
+        background-color: $tabs-active-border-color;
+      }
+    }
+  }
+
+  &-content {
+    padding: $tabs-padding-x $tabs-padding-y;
+  }
 }
