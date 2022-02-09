@@ -9,10 +9,10 @@ function App() {
         <Layout.Aside className="demo-aside">Page Left Aside</Layout.Aside>
         <Layout.Main className="demo-main">
           <Tabs tabPosition="top" size="large">
-            <Tabs.TabPane label="tab 1">
+            <Tabs.TabPane label="tab 1" disabled>
               <h1>tab 1</h1>
             </Tabs.TabPane>
-            <Tabs.TabPane label="tab 2">
+            <Tabs.TabPane label="tab 2" disabled>
               <h1>tab 2</h1>
               <h1>tab 2</h1>
             </Tabs.TabPane>
