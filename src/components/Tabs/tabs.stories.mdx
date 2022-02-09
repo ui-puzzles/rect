@@ -1,20 +1,88 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import Tabs from './tabs';
+import Tabs from './index';
+import Divider from '../Divider';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/__classification__/Tabs" component={Tabs} />
+<Meta title="Components/Data Display/Tabs" component={Tabs} />
 
 ## Tabs
 
-The descriptions of your component.
+Further classification of the content in the same view and make it easy to organize the content.
 
 ## Examples
 
 There are some examples as follows which can help you get started quickly.
 
+### default
+
+By default, the props of type is "line" and size is "middle", you can use it simply as follows.
+
+Note that the prop label is required in the component of Tabs.TabPane.
+
 <Canvas>
-  <Story name="your name"></Story>
+  <Story name="basic">
+    <Tabs>
+      <Tabs.TabPane label="Tab-1">content one</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-2">content two</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-3">content three</Tabs.TabPane>
+    </Tabs>
+  </Story>
+</Canvas>
+
+### size
+
+You can set the size of tabs.
+
+<Canvas>
+  <Story name="size">
+    <Divider dashed textStyle={{ color: '#999' }}>
+      small
+    </Divider>
+    <Tabs size="small">
+      <Tabs.TabPane label="Tab-1">content one</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-2">content two</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-3">content three</Tabs.TabPane>
+    </Tabs>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      large
+    </Divider>
+    <Tabs size="large">
+      <Tabs.TabPane label="Tab-1">content one</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-2">content two</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-3">content three</Tabs.TabPane>
+    </Tabs>
+  </Story>
+</Canvas>
+
+### type
+
+You can set the type of tabs by the props of type.
+
+<Canvas>
+  <Story name="type">
+    <Tabs type="card">
+      <Tabs.TabPane label="Tab-1">content one</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-2">content two</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-3">content three</Tabs.TabPane>
+    </Tabs>
+  </Story>
+</Canvas>
+
+### dsiabled
+
+Disabled a tab.
+
+<Canvas>
+  <Story name="dsiabled">
+    <Tabs type="card">
+      <Tabs.TabPane label="Tab-1" disabled>
+        content one
+      </Tabs.TabPane>
+      <Tabs.TabPane label="Tab-2">content two</Tabs.TabPane>
+      <Tabs.TabPane label="Tab-3">content three</Tabs.TabPane>
+    </Tabs>
+  </Story>
 </Canvas>
 
 <ReadMe />

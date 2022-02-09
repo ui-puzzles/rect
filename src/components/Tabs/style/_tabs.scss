@@ -20,6 +20,8 @@ $tabs-card-margin-left: 4px !default;
 $tabs-font-size-lg: $font-size-lg !default;
 $tabs-font-size-sm: $font-size-sm !default;
 
+$tabs-item-disabled-color: $gray-500 !default;
+
 .#{$pr-tabs} {
   display: flex;
   flex-direction: column;
@@ -50,6 +52,16 @@ $tabs-font-size-sm: $font-size-sm !default;
     &:hover {
       color: $tabs-active-border-color;
       transition: color 300ms;
+    }
+
+    &-disabled {
+      color: $tabs-item-disabled-color;
+      cursor: not-allowed;
+      // pointer-events: none;
+
+      &:hover {
+        color: $tabs-item-disabled-color;
+      }
     }
   }
 

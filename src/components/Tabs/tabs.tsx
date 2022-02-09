@@ -3,11 +3,11 @@ import classnames from 'classnames';
 
 import { TabsProps, TabPaneProps, TabPaneInternalProps } from './interface';
 import { TAB_PANE_DISPLAY_NAME } from './tabPane';
-import { isFunc } from '@/utils';
+import { isFunc, isTrue } from '../../utils';
 
 const prefixCls = 'pr-tabs';
 const TAB_POSITIONS = ['left', 'right', 'top', 'bottom'];
-const TAB_TYPES = ['line', 'card', 'text', 'rounded'];
+const TAB_TYPES = ['line', 'card'];
 const TAB_SIZES = ['small', 'middle', 'large'];
 
 const Tabs: FC<TabsProps> = (props) => {
@@ -16,7 +16,7 @@ const Tabs: FC<TabsProps> = (props) => {
     style,
     defaultActiveKey = '0',
     tabPosition = 'top',
-    type = 'card',
+    type = 'line',
     size = 'middle',
     lazy = true,
     extra,
@@ -45,7 +45,9 @@ const Tabs: FC<TabsProps> = (props) => {
     className
   );
 
-  const handleClickTab = (key: string | React.Key) => () => {
+  const handleClickTab = (key: string | React.Key, disableItem?: boolean) => () => {
+    if (isTrue(disableItem)) return;
+
     setActiveKey(key);
 
     if (isFunc(onTabClick)) {
@@ -67,10 +69,15 @@ const Tabs: FC<TabsProps> = (props) => {
       const itemKey = childElem.key || `${index}`;
       const itemClassNames = classnames(`${prefixCls}-item`, {
         [`${prefixCls}-item-active`]: itemKey === activeKey,
+        [`${prefixCls}-item-disabled`]: childElem.props.disabled,
       });
 
       return (
-        <div key={itemKey} className={itemClassNames} onClick={handleClickTab(itemKey)}>
+        <div
+          key={itemKey}
+          className={itemClassNames}
+          onClick={handleClickTab(itemKey, childElem.props.disabled)}
+        >
           {childElem.props.label}
         </div>
       );

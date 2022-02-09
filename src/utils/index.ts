@@ -5,6 +5,8 @@ export const isObj = (val: unknown): val is Record<any, any> => getPrimitiveType
 
 export const isFunc = (val: unknown): val is CallableFunction => typeof val === 'function';
 
+export const isTrue = (val: unknown): val is boolean => val === true;
+
 export const isString = (str: unknown): str is string => typeof str === 'string';
 
 export const isPromise = <T = any>(val: any): val is Promise<T> => {
