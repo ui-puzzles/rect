@@ -5,7 +5,7 @@ import { TabPaneProps, TabPaneInternalProps } from './interface';
 
 export const TAB_PANE_DISPLAY_NAME = 'TabPane';
 
-const prefixCls = 'pr-tab-pane';
+const prefixCls = 'pr-tabs-pane';
 
 const TabPane: FC<TabPaneProps & TabPaneInternalProps> = (props) => {
   const { className, style, children, activeKey, itemKey, lazy } = props;
