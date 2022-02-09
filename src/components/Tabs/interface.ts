@@ -5,7 +5,7 @@ export interface TabsProps {
   style?: CSSProperties;
   activeKey?: string;
   defaultActiveKey?: string;
-  animation?: boolean | CSSProperties;
+  // animation?: boolean;
   tabPosition?: 'left' | 'right' | 'top' | 'bottom';
   type?: 'line' | 'card' | 'text' | 'rounded';
   size?: 'small' | 'middle' | 'large';
@@ -27,4 +27,6 @@ export interface TabPaneProps {
 export interface TabPaneInternalProps {
   activeKey?: string | React.Key;
   itemKey?: string | React.Key;
+  lazy?: boolean;
+  // animation?: boolean;
 }

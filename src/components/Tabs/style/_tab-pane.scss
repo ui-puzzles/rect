@@ -1,9 +1,5 @@
 $pr-tab-pane: 'pr-tab-pane';
 
-.#{$pr-tab-pane} {
+.#{$pr-tab-pane}-hidden {
   display: none;
-}
-
-.#{$pr-tab-pane}-active {
-  display: block;
 }

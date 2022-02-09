@@ -8,21 +8,31 @@ export const TAB_PANE_DISPLAY_NAME = 'TabPane';
 const prefixCls = 'pr-tab-pane';
 
 const TabPane: FC<TabPaneProps & TabPaneInternalProps> = (props) => {
-  const { className, style, children, activeKey, itemKey } = props;
+  const { className, style, children, activeKey, itemKey, lazy } = props;
 
   const classNames = classnames(
     prefixCls,
     {
-      [`${prefixCls}-active`]: activeKey && activeKey === itemKey,
+      [`${prefixCls}-hidden`]: !lazy && activeKey !== itemKey,
     },
     className
   );
 
-  return (
-    <div className={classNames} style={style}>
-      {children}
-    </div>
-  );
+  const renderChildren = () => {
+    const childrenEle = (
+      <div className={classNames} style={style}>
+        {children}
+      </div>
+    );
+
+    if (lazy) {
+      if (activeKey === itemKey) return childrenEle;
+    } else {
+      return childrenEle;
+    }
+  };
+
+  return <>{renderChildren()}</>;
 };
 
 TabPane.displayName = TAB_PANE_DISPLAY_NAME;

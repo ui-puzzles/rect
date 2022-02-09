@@ -14,12 +14,11 @@ const Tabs: FC<TabsProps> = (props) => {
   const {
     className,
     style,
-    defaultActiveKey = 'tab2',
-    animation = true,
+    defaultActiveKey = '0',
     tabPosition = 'top',
-    type = 'line',
+    type = 'card',
     size = 'middle',
-    lazy = false,
+    lazy = true,
     extra,
     // destroyInactiveTabPane,
     onChange,
@@ -28,14 +27,19 @@ const Tabs: FC<TabsProps> = (props) => {
   } = props;
   const [activeKey, setActiveKey] = useState<string | React.Key>(defaultActiveKey);
   const notDefaultAndValidPos = tabPosition !== 'top' && TAB_POSITIONS.includes(tabPosition);
-  const notDefaultAndValidType = type !== 'line' && TAB_TYPES.includes(type);
-  const notDefaultAndValidSize = size !== 'middle' && TAB_SIZES.includes(tabPosition);
+  const notDefaultAndValidSize = size !== 'middle' && TAB_SIZES.includes(size);
+  const isValidType = TAB_TYPES.includes(type);
+  let typeClassName = `${prefixCls}-${type}`;
+
+  if (type === 'card' && tabPosition !== 'top') {
+    typeClassName = `${prefixCls}-line`;
+  }
 
   const classNames = classnames(
     prefixCls,
     {
       [`${prefixCls}-${tabPosition}`]: notDefaultAndValidPos,
-      [`${prefixCls}-${type}`]: notDefaultAndValidType,
+      [`${typeClassName}`]: isValidType,
       [`${prefixCls}-${size}`]: notDefaultAndValidSize,
     },
     className
@@ -98,16 +102,11 @@ const Tabs: FC<TabsProps> = (props) => {
       const itemKey = childElem.key || `${index}`;
       if (displayName !== TAB_PANE_DISPLAY_NAME) return;
 
-      if (lazy) {
-        if (itemKey !== activeKey) return;
-
-        return childElem;
-      } else {
-        return React.cloneElement(childElem, {
-          activeKey,
-          itemKey,
-        });
-      }
+      return React.cloneElement(childElem, {
+        activeKey,
+        itemKey,
+        lazy,
+      });
     });
 
     if (tabPaneChild?.length) {
