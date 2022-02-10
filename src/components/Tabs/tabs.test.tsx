@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, fireEvent, RenderResult } from '@testing-library/react';
 
 import Tabs, { TabsProps, TabPaneProps } from './index';

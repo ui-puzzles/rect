@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import Tabs from './tabs';
 import TabPane from './tabPane';

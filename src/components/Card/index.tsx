@@ -1,4 +1,3 @@
-
 import { FC } from 'react';
 
 import Card from './card';
@@ -11,11 +10,7 @@ export type ICardComponent = FC<CardProps> & {
   Grid: FC<CardGridProps>;
 };
 
-export type {
-  CardProps,
-  CardGridProps,
-  CardMetaProps
-}
+export type { CardProps, CardGridProps, CardMetaProps };
 
 const ComponentCard = Card as ICardComponent;
 
