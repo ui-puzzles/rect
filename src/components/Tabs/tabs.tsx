@@ -1,9 +1,9 @@
 import React, { FC, FunctionComponentElement, isValidElement, useState } from 'react';
 import classnames from 'classnames';
 
-import { TabsProps, TabPaneProps, TabPaneInternalProps } from './interface';
 import { TAB_PANE_DISPLAY_NAME } from './tabPane';
 import { isFunc, isTrue } from '../../utils';
+import type { TabsProps, TabPaneProps, TabPaneInternalProps } from './interface';
 
 const prefixCls = 'pr-tabs';
 const TAB_POSITIONS = ['left', 'right', 'top', 'bottom'];
