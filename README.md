@@ -1,4 +1,3 @@
-
 <div align="center">
   <a href="https://ui-puzzles.github.io/rect/?path=/docs/welcome--page" target="_blank">
     <img alt="ui-puzzle logo" width="200" src="https://static-images-1305792369.cos.ap-shanghai.myqcloud.com/puzzle-logo.svg"/>
@@ -21,34 +20,33 @@ English | [简体中文](./README-zh_CN.md)
 
 </div>
 
-# Features
+## Features
 
-## friendly
+### friendly
 
 UI development process, the first thing to consider is how to make the components more user-friendly, so that users are comfortable with.
 
-## Artistic
+### Artistic
 
 Continued pursuit of the ultimate in aesthetics while maintaining component performance.
 
-## Efficient
+### Efficient
 
 During the code design process, we are trading-off to achieve the best balance between component reuse, business usage boundaries, and component usage specifications.
 
-## Extensible
+### Extensible
 
 Considering the business case differences, the code in the framework are scope-limited and easily overwritten.
 
-## Comprehensive
+### Comprehensive
 
 Out of the box, high-quality components that cover most business scenarios.
 
-## TypeScript friendly
+### TypeScript friendly
 
 All components are written in TypeScript. it's type friendly.
 
-
-# Installation
+## Installation
 
 [npm package](https://www.npmjs.com/package/@ui-puzzles/rect)
 
@@ -60,7 +58,7 @@ npm i @ui-puzzles/rect
 yarn add @ui-puzzles/rect
 ```
 
-# Examples
+## Usage
 
 ```typescript
 import React from 'react';
@@ -69,21 +67,22 @@ import { Button } from '@ui-puzzles/rect';
 import '@ui-puzzles/rect/dist/index.css';
 
 function App() {
-  return (
-    <Button btnType="primary" label="Hello World" />
-  );
+  return <Button btnType="primary" label="Hello World" />;
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
+## Documents
 
-# Browser Support
+Going the <a href="https://ui-puzzles.github.io/rect/?path=/docs/welcome--page" target="_blank">docs</a> to learn more.
 
-| IE / Edge | Firefox | Chrome | Safari | Opera | Electron |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+## Browser Support
 
-# License
+| IE / Edge | Firefox         | Chrome          | Safari          | Opera           | Electron        |
+| --------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| Edge      | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+
+## License
 
 This project is [MIT licensed](./LICENSE)
