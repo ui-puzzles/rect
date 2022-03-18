@@ -5,7 +5,7 @@ import { ImageProps } from './interface';
 import useImageStatus from './hooks/useImageStatus';
 import { isString } from '../../utils';
 
-const DEFAULT_PREFIX_CLS = 'pr-image';
+export const DEFAULT_PREFIX_CLS = 'pr-image';
 
 const RcImage: FC<ImageProps> = ({
   className,
@@ -24,7 +24,7 @@ const RcImage: FC<ImageProps> = ({
   onClick,
   ...restProps
 }) => {
-  const { isLoading, isError, setStatus } = useImageStatus('beforeLoad');
+  const { isLoading, setStatus } = useImageStatus('beforeLoad');
   const imgRef = useRef<HTMLImageElement>();
   const errRef = useRef<boolean>(false);
 
