@@ -1,1 +1,49 @@
 $pr-image: 'pr-image';
+
+$image-border-radius: $border-radius;
+$image-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+$image-error-bg: $gray-400;
+
+.#{$pr-image} {
+  position: relative;
+  display: inline-block;
+
+  &-wrapper,
+  &-img {
+    border-radius: $image-border-radius;
+  }
+
+  &-wrapper {
+    box-shadow: $image-box-shadow;
+  }
+
+  &-loading {
+    @include flex;
+  }
+
+  &-img {
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  &-error {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-alt {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    line-height: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 0 0 $image-border-radius $image-border-radius;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

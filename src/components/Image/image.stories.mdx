@@ -1,20 +1,42 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
 import Image from './image';
+import Divider from '../Divider';
 import ReadMe from './README.en-US.md';
 
-<Meta title="Components/__classification__/Image" component={Image} />
+<Meta title="Components/Data Display/Image" component={Image} />
 
 ## Image
 
-The descriptions of your component.
+Simply show pictures.
 
 ## Examples
 
 There are some examples as follows which can help you get started quickly.
 
 <Canvas>
-  <Story name="your name"></Story>
+  <Story name="default">
+    <Image
+      alt="default"
+      placeholder={<div style={{ width: '200px', height: '200px', background: '#f5f5f5' }} />}
+      src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/boy-ocean.png"
+    />
+    <Divider dashed textStyle={{ color: '#999' }}>
+      error and fallback
+    </Divider>
+    <Image
+      alt="Error"
+      fallback="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles%2Fbreak.svg"
+      src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/error.png"
+    />
+    <Divider dashed textStyle={{ color: '#999' }}>
+      error without fallback
+    </Divider>
+    <Image
+      alt="Error"
+      src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/error.png"
+    />
+  </Story>
 </Canvas>
 
 <ReadMe />

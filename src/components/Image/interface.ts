@@ -1,12 +1,10 @@
-import React, { CSSProperties, ReactNode, SyntheticEvent } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 
-export interface ImageProps
-  extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'placeholder' | 'onClick'> {
+export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'placeholder'> {
   wrapperClassName?: string;
   wrapperStyle?: CSSProperties;
   prefixCls?: string;
   placeholder?: ReactNode;
-  fallback?: string | boolean;
-  preview?: boolean;
-  onError?: (e: SyntheticEvent) => void;
+  fallback?: string;
+  src: string;
 }
