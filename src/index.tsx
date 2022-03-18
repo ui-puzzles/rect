@@ -11,6 +11,7 @@ export { default as Carousel } from './components/Carousel';
 export { default as Divider } from './components/Divider';
 export { default as Empty } from './components/Empty';
 export { default as Icon } from './components/Icon';
+export { default as Image } from './components/Image';
 export { default as Input } from './components/Input';
 export { default as Layout } from './components/Layout';
 export { default as Menu } from './components/Menu';
