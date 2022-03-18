@@ -1,4 +1,4 @@
-import { Layout, Tabs } from '@/index';
+import { Layout, Tabs, Image } from '@/index';
 import './app.scss';
 
 function App() {
@@ -21,7 +21,12 @@ function App() {
             </Tabs.TabPane>
           </Tabs>
         </Layout.Main>
-        <Layout.Aside className="demo-aside">Page Right Aside</Layout.Aside>
+        <Layout.Aside className="demo-aside">
+          <Image
+            alt="Error"
+            src="https://images-1254102905.cos.ap-shanghai.myqcloud.com/articles/error.png"
+          />
+        </Layout.Aside>
       </Layout>
       <Layout.Footer className="demo-footer">Page Footer</Layout.Footer>
     </Layout>
