@@ -3,7 +3,7 @@
 The table to display the props of your component
 
 | Property        | Description                        | Type                         | Default | Version |
-| --------------- | ---------------------------------- | ---------------------------- | ------- | ------- | ----- |
+| --------------- | ---------------------------------- | ---------------------------- | ------- | ------- |
 | className       | additional css class               | string                       | -       | 1.6.0   |
 | style           | additional style                   | CSSProperties                | -       | 1.6.0   |
 | bordered        | whether to how Tag borders         | boolean                      | false   | 1.6.0   |
@@ -15,7 +15,7 @@ The table to display the props of your component
 | defaultSelected | set default selected value         | boolean                      | false   | 1.6.0   |
 | icon            | extra icon prefix of Tag           | ReactNode                    | -       | 1.6.0   |
 | closeIcon       | specify the close icon             | ReactNode                    | -       | 1.6.0   |
-| onClose         | callback when click the close icon | () => Promise                | void    | -       | 1.6.0 |
+| onClose         | callback when click the close icon | () => Promise \| void        | -       | 1.6.0   |
 | onSelect        | callback when selected Tag         | (checked: boolean) => void   | -       | 1.6.0   |
 
 ## Change Log
