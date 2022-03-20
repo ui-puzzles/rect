@@ -74,3 +74,8 @@ export const wipeUndefValueOfObj = <T>(val: T): Pick<T, keyof T> | undefined => 
     return;
   }
 };
+
+export const fakePromise =
+  (interval = 500) =>
+  () =>
+    new Promise((resolve) => setTimeout(() => resolve(true), interval));

@@ -1,0 +1,82 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Tag from './tag';
+import Divider from '../Divider';
+import Icon from '../Icon';
+import { fakePromise } from '../../utils';
+import ReadMe from './README.en-US.md';
+
+<Meta title="Components/Data Display/Tag" component={Tag} />
+
+## Tag
+
+More precise tagging and classification of resources.
+
+## Examples
+
+There are some examples as follows which can help you get started quickly.
+
+<Canvas>
+  <Story name="default">
+    <Divider dashed textStyle={{ color: '#999' }}>
+      default
+    </Divider>
+    <Tag>DEFAUTL</Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      size of xs
+    </Divider>
+    <Tag size="xs">mini</Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      size of sm
+    </Divider>
+    <Tag size="sm">small</Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      size of lg
+    </Divider>
+    <Tag size="lg">large</Tag>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="bordered and selectable">
+    <Divider dashed textStyle={{ color: '#999' }}>
+      bordered
+    </Divider>
+    <Tag bordered>with bordered</Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      selectable
+    </Divider>
+    <Tag bordered selectable>
+      with selectable
+    </Tag>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="icon">
+    <Divider dashed textStyle={{ color: '#999' }}>
+      prefix icon
+    </Divider>
+    <Tag bordered icon={<Icon icon="bell" />}>
+      with icon
+    </Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      selectable
+    </Divider>
+    <Tag bordered selectable icon={<Icon icon="bicycle" />}>
+      selectable and icon
+    </Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      closable
+    </Divider>
+    <Tag closable>React</Tag>
+    <Divider dashed textStyle={{ color: '#999' }}>
+      closable and loading
+    </Divider>
+    <Tag closable onClose={fakePromise(10000)}>
+      React
+    </Tag>
+  </Story>
+</Canvas>
+
+<ReadMe />

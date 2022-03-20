@@ -18,5 +18,6 @@ export { default as Menu } from './components/Menu';
 export { default as PageHeader } from './components/PageHeader';
 export { default as Progress } from './components/Progress';
 export { default as Tabs } from './components/Tabs';
+export { default as Tag } from './components/Tag';
 export { default as Transition } from './components/Transition';
 export { default as Upload } from './components/Upload';
