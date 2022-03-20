@@ -1,1 +1,141 @@
 $pr-tag: 'pr-tag';
+
+$tag-font-weight: 400;
+$tag-font-family: $font-family-base !default;
+$tag-line-height: $line-height-xs !default;
+
+$tag-icon-margin: $spacing-3 !default;
+
+$tag-padding-y-xs: $padding-y-xs !default;
+$tag-padding-x-xs: $padding-x-xs !default;
+$tag-padding-y-sm: $padding-y-sm !default;
+$tag-padding-x-sm: $padding-x-sm !default;
+$tag-padding-y: $padding-y !default;
+$tag-padding-x: $padding-x !default;
+$tag-padding-y-lg: $padding-y-lg !default;
+$tag-padding-x-lg: $padding-x-lg !default;
+
+$tag-font-size-xs: $font-size-xs !default;
+$tag-font-size-sm: $font-size-sm !default;
+$tag-font-size: $font-size-base !default;
+$tag-font-size-lg: $font-size-lg !default;
+
+$tag-border-radius-xs: $border-radius-xs !default;
+$tag-border-radius-sm: $border-radius-sm !default;
+$tag-border-radius: $border-radius !default;
+$tag-border-radius-lg: $border-radius-lg !default;
+
+$tag-background-hover-color: $transparent-bg-35 !default;
+$tag-background-selected-color: $transparent-bg-75 !default;
+
+$tag-border-width: $border-width !default;
+$tag-border-color: $tag-background-selected-color !default;
+
+@mixin tag-size($padding-x, $padding-y, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+.#{$pr-tag} {
+  display: inline-flex;
+  align-items: center;
+  font-weight: $tag-font-weight;
+  font-family: $tag-font-family;
+  line-height: $tag-line-height;
+  white-space: nowrap;
+  background-image: none;
+  vertical-align: middle;
+  background-color: $tag-background-selected-color;
+  border: $tag-border-width solid transparent;
+
+  @include button-size($tag-padding-x, $tag-padding-y, $tag-font-size, $tag-border-radius);
+}
+
+.#{$pr-tag}-xs {
+  @include button-size(
+    $tag-padding-x-xs,
+    $tag-padding-y-xs,
+    $tag-font-size-xs,
+    $tag-border-radius-xs
+  );
+}
+
+.#{$pr-tag}-sm {
+  @include button-size(
+    $tag-padding-x-sm,
+    $tag-padding-y-sm,
+    $tag-font-size-sm,
+    $tag-border-radius-sm
+  );
+}
+
+.#{$pr-tag}-lg {
+  @include button-size($tag-padding-x-lg, $tag-padding-y-lg, $tag-font-size-lg, $tag-border-radius);
+}
+
+.#{$pr-tag}-bordered {
+  border: $tag-border-width solid $tag-border-color;
+}
+
+.#{$pr-tag}-selectable {
+  background-color: transparent;
+  border-color: transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $tag-background-hover-color;
+    border-color: $tag-border-color;
+  }
+}
+
+.#{$pr-tag}-selected {
+  background-color: $tag-background-selected-color;
+}
+
+.#{$pr-tag}-icon {
+  margin-right: $tag-icon-margin;
+}
+
+.#{$pr-tag}-icon-close,
+.#{$pr-tag}-icon-loading {
+  display: inline-block;
+}
+
+.#{$pr-tag}-icon-close {
+  margin-left: $tag-icon-margin;
+  opacity: 0.65;
+  transition: opacity 0.3s;
+  cursor: pointer;
+
+  > .pr-icon {
+    vertical-align: -0.15em;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.#{$pr-tag}-icon-loading {
+  opacity: 0.8;
+  margin-left: $tag-icon-margin;
+  animation: 1s linear infinite spinnerRotate;
+  transform-origin: center center;
+}
+
+.#{$pr-tag}-hidden {
+  display: none;
+  transition: display 0.3s;
+}
+
+@keyframes spinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
