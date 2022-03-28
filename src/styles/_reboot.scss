@@ -16,6 +16,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%; // 3
+  -webkit-font-smoothing: antialiased; // chrome、safari
+  -moz-osx-font-smoothing: grayscale; // firefox
+  font-family: $font-family-base;
+}
+
 // Body
 //
 // 1. Remove the margin in all browsers.
@@ -24,14 +33,10 @@
 // 4. Change the default tap highlight to be completely transparent in iOS.
 body {
   margin: 0; // 1
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  font-weight: $font-weight-base;
-  line-height: $line-height-base;
+  padding: 0;
   color: $body-color;
   text-align: $body-text-align;
   background-color: $body-bg; // 2
-  -webkit-text-size-adjust: 100%; // 3
   -webkit-tap-highlight-color: rgba($black, 0); // 4
 }
 
