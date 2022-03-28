@@ -1,1 +1,28 @@
 $pr-pagination: 'pr-pagination';
+
+.#{$pr-pagination} {
+  &-list {
+    display: inline-flex;
+    list-style: none;
+  }
+
+  &-item {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    outline: 0;
+    user-select: none;
+    border-radius: 4px;
+    color: #2a3a4a;
+    border: 0 solid transparent;
+    background-color: transparent;
+    min-width: 32px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+  }
+
+  &-item-active {
+    background-color: rgba($color: $primary, $alpha: 0.3);
+  }
+}
