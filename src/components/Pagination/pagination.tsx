@@ -33,6 +33,7 @@ const Pagination: FC<PaginationProps> = (props) => {
     onChange,
   } = props;
   const [current, setCurrent] = useState(propCurrent || defaultCurrent);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [pageSize, setPageSize] = useState(propPageSize || defaultPageSize);
   const classNames = classnames(
     prefixCls,
@@ -45,14 +46,15 @@ const Pagination: FC<PaginationProps> = (props) => {
 
   if (total === DEFAULT_TOTAL || (hideOnSinglePage && pagesAmount <= 1)) return;
 
-  let preCursor: number;
-  let nextCursor: number;
   const genRenderItems = () => {
     let items = [];
+    let preCursor: number;
+    let nextCursor: number;
     const doubleBufferSize = BUFFER_SIZE * 2;
 
     if (pagesAmount <= MINI_DISPLAY_ITEMS + doubleBufferSize) {
-      return items.concat(fillArray(pagesAmount, 1));
+      items.push(fillArray(pagesAmount, 1));
+      return;
     }
 
     if (current - defaultCurrent >= doubleBufferSize) {
@@ -100,7 +102,12 @@ const Pagination: FC<PaginationProps> = (props) => {
     let newCur = item;
 
     if (item === JumpAction.Back) {
-      newCur = current - MINI_DISPLAY_ITEMS;
+      /**
+       * NOTE:
+       * 1. make sure the current must not less than 1.
+       * 2. make sure the current must not greater than the items length.
+       */
+      newCur = Math.max(current - MINI_DISPLAY_ITEMS, DEFAULT_CURRENT);
     } else if (item === JumpAction.Forward) {
       newCur = current + MINI_DISPLAY_ITEMS;
     }
